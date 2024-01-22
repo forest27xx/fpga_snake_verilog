@@ -1,0 +1,1513 @@
+Release 14.7 par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+DESKTOP-H0SHBFI::  Tue Jan 23 04:00:14 2024
+
+par -w -intstyle ise -ol high -mt off hdmi_block_move_top_map.ncd
+hdmi_block_move_top.ncd hdmi_block_move_top.pcf 
+
+
+Constraints file: hdmi_block_move_top.pcf.
+Loading device for application Rf_Device from file '6slx16.nph' in environment D:\Xilinx\14.7\ISE_DS\ISE\.
+   "hdmi_block_move_top" is an NCD, version 3.2, device xc6slx16, package ftg256, speed -2
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+INFO:Par:282 - No user timing constraints were detected or you have set the option to ignore timing constraints ("par
+   -x"). Place and Route will run in "Performance Evaluation Mode" to automatically improve the performance of all
+   internal clocks in this design. Because there are not defined timing requirements, a timing score will not be
+   reported in the PAR report in this mode. The PAR timing summary will list the performance achieved for each clock.
+   Note: For the fastest runtime, set the effort level to "std".  For best performance, set the effort level to "high".
+
+Device speed data version:  "PRODUCTION 1.23 2013-10-13".
+
+
+
+Device Utilization Summary:
+
+Slice Logic Utilization:
+  Number of Slice Registers:                 1,357 out of  18,224    7%
+    Number used as Flip Flops:               1,015
+    Number used as Latches:                    330
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:               12
+  Number of Slice LUTs:                      3,262 out of   9,112   35%
+    Number used as logic:                    3,249 out of   9,112   35%
+      Number using O6 output only:           2,497
+      Number using O5 output only:              45
+      Number using O5 and O6:                  707
+      Number used as ROM:                        0
+    Number used as Memory:                       1 out of   2,176    1%
+      Number used as Dual Port RAM:              0
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:             1
+        Number using O6 output only:             1
+        Number using O5 output only:             0
+        Number using O5 and O6:                  0
+    Number used exclusively as route-thrus:     12
+      Number with same-slice register load:      9
+      Number with same-slice carry load:         3
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 1,617 out of   2,278   70%
+  Number of MUXCYs used:                       784 out of   4,556   17%
+  Number of LUT Flip Flop pairs used:        3,821
+    Number with an unused Flip Flop:         2,508 out of   3,821   65%
+    Number with an unused LUT:                 559 out of   3,821   14%
+    Number of fully used LUT-FF pairs:         754 out of   3,821   19%
+    Number of slice register sites lost
+      to control set restrictions:               0 out of  18,224    0%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        14 out of     186    7%
+    Number of LOCed IOBs:                       10 out of      14   71%
+    IOB Master Pads:                             4
+    IOB Slave Pads:                              4
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         2 out of      32    6%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
+    Number used as BUFGs:                        2
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     248    0%
+  Number of OLOGIC2/OSERDES2s:                   8 out of     248    3%
+    Number used as OLOGIC2s:                     0
+    Number used as OSERDES2s:                    8
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             1 out of       8   12%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            2 out of      32    6%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            1 out of       2   50%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+
+Overall effort level (-ol):   High 
+Router effort level (-rl):    High 
+
+Starting initial Timing Analysis.  REAL time: 2 secs 
+Finished initial Timing Analysis.  REAL time: 2 secs 
+
+Starting Router
+
+
+Phase  1  : 21776 unrouted;      REAL time: 2 secs 
+
+Phase  2  : 19800 unrouted;      REAL time: 3 secs 
+
+Phase  3  : 9224 unrouted;      REAL time: 6 secs 
+
+Phase  4  : 9980 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+
+Updating file: hdmi_block_move_top.ncd with current fully routed design.
+
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 18 secs 
+
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 20 secs 
+
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 20 secs 
+
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 20 secs 
+
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 25 secs 
+
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 26 secs 
+Total REAL time to Router completion: 26 secs 
+Total CPU time to Router completion: 3 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+INFO:Par:459 - The Clock Report is not displayed in the non timing-driven mode.
+Timing Score: 1110 (Setup: 1110, Hold: 0)
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net tx_ | SETUP       |         N/A|    56.113ns|     N/A|           0
+  pclk                                      | HOLD        |     0.268ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_r | SETUP       |         N/A|     3.443ns|     N/A|           0
+  gbtodvi_top/pclkx2                        | HOLD        |     0.255ns|            |       0|           0
+                                            | MINPERIOD   |         N/A|     3.570ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.162ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     1.036ns|            |       0|           0
+  [8]_AND_347_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.789ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     0.834ns|            |       0|           0
+  10]_AND_519_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.910ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     0.887ns|            |       0|           0
+  0]_AND_693_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.497ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     1.223ns|            |       0|           0
+  [9]_AND_433_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.088ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.937ns|            |       0|           0
+  0]_AND_913_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.251ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     1.088ns|            |       0|           0
+  1]_AND_779_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.217ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     1.080ns|            |       0|           0
+  4]_AND_597_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.271ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     1.506ns|            |       0|           0
+  2]_AND_865_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.395ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     1.128ns|            |       0|           0
+  5]_AND_683_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.341ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     1.139ns|            |       0|           0
+  4]_AND_817_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.125ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     1.014ns|            |       0|           0
+  [10]_AND_409_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.587ns|     N/A|         170
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     1.155ns|            |       0|           0
+  0]_AND_605_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.961ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     0.848ns|            |       0|           0
+  1]_AND_603_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.734ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     0.827ns|            |       0|           0
+  3]_AND_951_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.164ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     1.039ns|            |       0|           0
+  2]_AND_601_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.095ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     0.907ns|            |       0|           0
+  [1]_AND_339_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.635ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     0.718ns|            |       0|           0
+  3]_AND_599_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.284ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     1.061ns|            |       0|           0
+  5]_AND_595_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.533ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     1.190ns|            |       0|           0
+  6]_AND_593_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.464ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     1.183ns|            |       0|           0
+  7]_AND_591_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.756ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.764ns|            |       0|           0
+  5]_AND_903_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.398ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     1.125ns|            |       0|           0
+  [0]_AND_473_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.154ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     1.030ns|            |       0|           0
+  0]_AND_583_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.178ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     1.024ns|            |       0|           0
+  8]_AND_589_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.029ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     0.925ns|            |       0|           0
+  1]_AND_581_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.068ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     0.972ns|            |       0|           0
+  9]_AND_587_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.063ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     0.984ns|            |       0|           0
+  2]_AND_579_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.309ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     1.108ns|            |       0|           0
+  6]_AND_769_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.364ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     1.135ns|            |       0|           0
+  3]_AND_577_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.909ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     0.897ns|            |       0|           0
+  4]_AND_575_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.299ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     1.135ns|            |       0|           0
+  [2]_AND_425_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.869ns|     N/A|          13
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.365ns|            |       0|           0
+  [0]_AND_517_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.194ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     1.026ns|            |       0|           0
+  5]_AND_573_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.391ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.091ns|            |       0|           0
+  [1]_AND_515_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.209ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     1.061ns|            |       0|           0
+  6]_AND_571_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.686ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.292ns|            |       0|           0
+  [2]_AND_513_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.312ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     1.106ns|            |       0|           0
+  7]_AND_569_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.805ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     0.849ns|            |       0|           0
+  [3]_AND_511_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.985ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     0.900ns|            |       0|           0
+  8]_AND_567_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.221ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.096ns|            |       0|           0
+  [4]_AND_509_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.525ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     0.684ns|            |       0|           0
+  9]_AND_565_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.874ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     0.868ns|            |       0|           0
+  3]_AND_533_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.281ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.074ns|            |       0|           0
+  [5]_AND_507_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.821ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.288ns|            |       0|           0
+  [6]_AND_505_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.134ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.024ns|            |       0|           0
+  [7]_AND_503_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.268ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     1.574ns|            |       0|           0
+  7]_AND_855_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.262ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.020ns|            |       0|           0
+  [0]_AND_495_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.036ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     0.957ns|            |       0|           0
+  [8]_AND_501_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.812ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.390ns|            |       0|           0
+  [1]_AND_493_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.871ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.360ns|            |       0|           0
+  [9]_AND_499_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.963ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     0.868ns|            |       0|           0
+  1]_AND_801_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.076ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.437ns|            |       0|           0
+  [2]_AND_491_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.283ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.086ns|            |       0|           0
+  [3]_AND_489_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.710ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.255ns|            |       0|           0
+  [4]_AND_487_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.568ns|     N/A|          85
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     1.137ns|            |       0|           0
+  9]_AND_807_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.139ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     0.968ns|            |       0|           0
+  [5]_AND_485_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.988ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     0.917ns|            |       0|           0
+  [4]_AND_377_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.294ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     1.114ns|            |       0|           0
+  2]_AND_667_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.911ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     0.891ns|            |       0|           0
+  10]_AND_651_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.322ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.132ns|            |       0|           0
+  [6]_AND_483_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.675ns|     N/A|          37
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.304ns|            |       0|           0
+  [7]_AND_481_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.103ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.001ns|            |       0|           0
+  [8]_AND_479_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.683ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.223ns|            |       0|           0
+  [9]_AND_477_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.122ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     1.011ns|            |       0|           0
+  [10]_AND_387_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.229ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     1.092ns|            |       0|           0
+  8]_AND_941_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.297ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     1.124ns|            |       0|           0
+  0]_AND_935_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.896ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     0.883ns|            |       0|           0
+  [6]_AND_329_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.679ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][0] | HOLD        |     1.216ns|            |       0|           0
+  [10]_AND_497_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.412ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     1.095ns|            |       0|           0
+  10]_AND_849_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.109ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     0.975ns|            |       0|           0
+  [5]_AND_463_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.990ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     0.921ns|            |       0|           0
+  8]_AND_523_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.306ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[10][1] | HOLD        |     1.054ns|            |       0|           0
+  [10]_AND_475_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.625ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     1.824ns|            |       0|           0
+  4]_AND_839_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.935ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     0.899ns|            |       0|           0
+  [1]_AND_361_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.088ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     0.937ns|            |       0|           0
+  10]_AND_937_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.223ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     1.035ns|            |       0|           0
+  [9]_AND_367_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.280ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     1.088ns|            |       0|           0
+  7]_AND_657_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.345ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     1.102ns|            |       0|           0
+  [3]_AND_313_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.778ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.844ns|            |       0|           0
+  10]_AND_871_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.020ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     0.973ns|            |       0|           0
+  6]_AND_791_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.209ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     1.061ns|            |       0|           0
+  5]_AND_925_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.867ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     0.849ns|            |       0|           0
+  0]_AND_561_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.215ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     1.078ns|            |       0|           0
+  10]_AND_717_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.801ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     0.809ns|            |       0|           0
+  10]_AND_629_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.006ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     0.981ns|            |       0|           0
+  [2]_AND_447_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.994ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     0.935ns|            |       0|           0
+  1]_AND_559_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.299ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     1.100ns|            |       0|           0
+  2]_AND_557_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.363ns|     N/A|          40
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     1.081ns|            |       0|           0
+  3]_AND_555_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.623ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     1.741ns|            |       0|           0
+  10]_AND_827_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.648ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     1.274ns|            |       0|           0
+  10]_AND_915_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.097ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     1.008ns|            |       0|           0
+  4]_AND_553_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.309ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     1.041ns|            |       0|           0
+  5]_AND_551_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.195ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     1.047ns|            |       0|           0
+  6]_AND_549_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.448ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     1.209ns|            |       0|           0
+  7]_AND_547_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.044ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     0.993ns|            |       0|           0
+  0]_AND_539_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.283ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     1.084ns|            |       0|           0
+  8]_AND_545_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.883ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     0.829ns|            |       0|           0
+  1]_AND_537_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.805ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     0.809ns|            |       0|           0
+  9]_AND_543_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.437ns|     N/A|          28
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     1.182ns|            |       0|           0
+  2]_AND_535_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.009ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     0.892ns|            |       0|           0
+  4]_AND_531_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.360ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     1.149ns|            |       0|           0
+  5]_AND_529_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.790ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     0.835ns|            |       0|           0
+  [10]_AND_365_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.381ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     1.616ns|            |       0|           0
+  9]_AND_829_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.263ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     1.108ns|            |       0|           0
+  [1]_AND_471_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.915ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     0.903ns|            |       0|           0
+  [4]_AND_399_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.261ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     1.038ns|            |       0|           0
+  6]_AND_527_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.220ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     1.083ns|            |       0|           0
+  [2]_AND_469_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.896ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     0.883ns|            |       0|           0
+  7]_AND_525_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.395ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     1.176ns|            |       0|           0
+  [6]_AND_351_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.896ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     0.878ns|            |       0|           0
+  [3]_AND_467_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.337ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     1.123ns|            |       0|           0
+  [4]_AND_465_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.905ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][1][ | HOLD        |     0.867ns|            |       0|           0
+  9]_AND_521_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.096ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     0.962ns|            |       0|           0
+  10]_AND_695_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.191ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     1.045ns|            |       0|           0
+  [6]_AND_461_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.168ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     1.057ns|            |       0|           0
+  [7]_AND_459_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.816ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     0.842ns|            |       0|           0
+  [8]_AND_303_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.096ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     0.945ns|            |       0|           0
+  [0]_AND_451_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.878ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     0.827ns|            |       0|           0
+  [8]_AND_457_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.253ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     1.081ns|            |       0|           0
+  [1]_AND_449_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.340ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     1.130ns|            |       0|           0
+  [9]_AND_455_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.987ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     0.912ns|            |       0|           0
+  [3]_AND_445_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.466ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     1.169ns|            |       0|           0
+  [4]_AND_443_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.129ns|     N/A|          56
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     0.951ns|            |       0|           0
+  [5]_AND_441_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.917ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     0.846ns|            |       0|           0
+  [6]_AND_439_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.992ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     0.922ns|            |       0|           0
+  [7]_AND_437_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.201ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     0.997ns|            |       0|           0
+  [8]_AND_435_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.436ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     1.142ns|            |       0|           0
+  10]_AND_607_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.335ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     1.128ns|            |       0|           0
+  [9]_AND_389_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.306ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     1.511ns|            |       0|           0
+  0]_AND_869_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.911ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     0.898ns|            |       0|           0
+  2]_AND_821_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.899ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     0.845ns|            |       0|           0
+  3]_AND_687_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.381ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     1.109ns|            |       0|           0
+  0]_AND_957_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.310ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     1.104ns|            |       0|           0
+  1]_AND_955_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.871ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     0.875ns|            |       0|           0
+  2]_AND_953_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.348ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     1.132ns|            |       0|           0
+  4]_AND_949_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.530ns|     N/A|         113
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     1.200ns|            |       0|           0
+  5]_AND_947_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.161ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     0.988ns|            |       0|           0
+  6]_AND_945_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.844ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     0.881ns|            |       0|           0
+  7]_AND_943_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.269ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     1.083ns|            |       0|           0
+  4]_AND_773_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.997ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][0][ | HOLD        |     0.910ns|            |       0|           0
+  9]_AND_939_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.738ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     0.784ns|            |       0|           0
+  1]_AND_933_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.903ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.865ns|            |       0|           0
+  3]_AND_907_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.836ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     0.876ns|            |       0|           0
+  2]_AND_931_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.915ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     0.902ns|            |       0|           0
+  3]_AND_929_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.803ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     0.848ns|            |       0|           0
+  4]_AND_927_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.733ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     0.721ns|            |       0|           0
+  6]_AND_923_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.455ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     1.174ns|            |       0|           0
+  [0]_AND_429_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.781ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     0.847ns|            |       0|           0
+  7]_AND_921_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.131ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     0.997ns|            |       0|           0
+  8]_AND_919_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.151ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[0][1][ | HOLD        |     1.037ns|            |       0|           0
+  9]_AND_917_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.596ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     1.712ns|            |       0|           0
+  5]_AND_859_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.071ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     0.909ns|            |       0|           0
+  7]_AND_811_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.208ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     1.079ns|            |       0|           0
+  [2]_AND_381_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.196ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     1.078ns|            |       0|           0
+  0]_AND_671_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.996ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     0.927ns|            |       0|           0
+  8]_AND_677_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.261ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     1.071ns|            |       0|           0
+  [1]_AND_427_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.746ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     0.759ns|            |       0|           0
+  [4]_AND_333_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.296ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     1.089ns|            |       0|           0
+  [3]_AND_423_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.141ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     1.050ns|            |       0|           0
+  [4]_AND_421_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.241ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     1.049ns|            |       0|           0
+  [5]_AND_419_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.340ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     1.152ns|            |       0|           0
+  [6]_AND_417_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.089ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     0.985ns|            |       0|           0
+  [7]_AND_415_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.270ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     1.098ns|            |       0|           0
+  [0]_AND_407_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.771ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     0.837ns|            |       0|           0
+  [8]_AND_413_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.235ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     1.037ns|            |       0|           0
+  [1]_AND_405_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.795ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][0] | HOLD        |     0.839ns|            |       0|           0
+  [9]_AND_411_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.256ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     0.990ns|            |       0|           0
+  [2]_AND_403_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.061ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     0.945ns|            |       0|           0
+  1]_AND_757_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.370ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     1.135ns|            |       0|           0
+  [3]_AND_401_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.060ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     0.976ns|            |       0|           0
+  [5]_AND_397_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.774ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     0.840ns|            |       0|           0
+  [6]_AND_395_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.865ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.869ns|            |       0|           0
+  0]_AND_891_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.207ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     1.069ns|            |       0|           0
+  [7]_AND_393_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.064ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[12][1] | HOLD        |     0.974ns|            |       0|           0
+  [8]_AND_391_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.266ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     1.113ns|            |       0|           0
+  8]_AND_897_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.868ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][0] | HOLD        |     0.872ns|            |       0|           0
+  [10]_AND_453_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.198ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     1.616ns|            |       0|           0
+  2]_AND_843_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.187ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     1.033ns|            |       0|           0
+  10]_AND_739_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.006ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     0.947ns|            |       0|           0
+  [7]_AND_371_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.039ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     0.935ns|            |       0|           0
+  5]_AND_661_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.107ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     0.907ns|            |       0|           0
+  [9]_AND_323_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.117ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     0.981ns|            |       0|           0
+  [1]_AND_317_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.624ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     0.742ns|            |       0|           0
+  4]_AND_795_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.098ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][0][ | HOLD        |     0.969ns|            |       0|           0
+  10]_AND_585_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.323ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[11][1] | HOLD        |     1.136ns|            |       0|           0
+  [10]_AND_431_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.083ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.932ns|            |       0|           0
+  1]_AND_911_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.778ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.844ns|            |       0|           0
+  10]_AND_893_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.077ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.961ns|            |       0|           0
+  2]_AND_909_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.286ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     1.129ns|            |       0|           0
+  4]_AND_905_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.958ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.955ns|            |       0|           0
+  6]_AND_901_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.834ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.871ns|            |       0|           0
+  5]_AND_881_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.994ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.935ns|            |       0|           0
+  7]_AND_899_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.903ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.890ns|            |       0|           0
+  1]_AND_889_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.877ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][0][ | HOLD        |     0.826ns|            |       0|           0
+  9]_AND_895_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.586ns|     N/A|         133
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     1.223ns|            |       0|           0
+  2]_AND_887_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.680ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.750ns|            |       0|           0
+  3]_AND_885_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.828ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     1.394ns|            |       0|           0
+  7]_AND_833_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.827ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.844ns|            |       0|           0
+  4]_AND_883_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.889ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.838ns|            |       0|           0
+  6]_AND_879_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.144ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.998ns|            |       0|           0
+  7]_AND_877_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.056ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.977ns|            |       0|           0
+  8]_AND_875_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.939ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     0.884ns|            |       0|           0
+  10]_AND_673_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.051ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[1][1][ | HOLD        |     0.951ns|            |       0|           0
+  9]_AND_873_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.161ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     1.035ns|            |       0|           0
+  [4]_AND_355_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.298ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     1.072ns|            |       0|           0
+  10]_AND_805_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.917ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     0.912ns|            |       0|           0
+  [6]_AND_307_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.155ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     1.077ns|            |       0|           0
+  9]_AND_785_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.999ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     0.940ns|            |       0|           0
+  [0]_AND_385_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.138ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     1.020ns|            |       0|           0
+  [1]_AND_383_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.884ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     0.888ns|            |       0|           0
+  [3]_AND_379_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.660ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     0.729ns|            |       0|           0
+  [5]_AND_375_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.995ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     0.925ns|            |       0|           0
+  [6]_AND_373_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.937ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     0.903ns|            |       0|           0
+  [0]_AND_363_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.980ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][0] | HOLD        |     0.883ns|            |       0|           0
+  [8]_AND_369_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.135ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     1.000ns|            |       0|           0
+  [2]_AND_359_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.178ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     1.052ns|            |       0|           0
+  [3]_AND_357_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.900ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     0.846ns|            |       0|           0
+  [5]_AND_353_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.120ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     0.969ns|            |       0|           0
+  [7]_AND_349_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.803ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     0.778ns|            |       0|           0
+  [9]_AND_345_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.258ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     1.043ns|            |       0|           0
+  1]_AND_691_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.870ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     0.874ns|            |       0|           0
+  0]_AND_825_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.482ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     1.261ns|            |       0|           0
+  2]_AND_777_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.392ns|     N/A|         234
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     1.185ns|            |       0|           0
+  4]_AND_861_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.897ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     0.859ns|            |       0|           0
+  9]_AND_851_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.962ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     0.849ns|            |       0|           0
+  8]_AND_831_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.393ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     1.612ns|            |       0|           0
+  1]_AND_867_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.839ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     1.379ns|            |       0|           0
+  4]_AND_729_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.868ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     0.829ns|            |       0|           0
+  3]_AND_863_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.841ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     0.796ns|            |       0|           0
+  6]_AND_857_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.430ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     1.655ns|            |       0|           0
+  0]_AND_847_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.873ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][0][ | HOLD        |     1.361ns|            |       0|           0
+  8]_AND_853_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.896ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     1.447ns|            |       0|           0
+  1]_AND_845_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.172ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     1.014ns|            |       0|           0
+  6]_AND_681_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.333ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     1.131ns|            |       0|           0
+  5]_AND_815_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.097ns|     N/A|          17
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     0.988ns|            |       0|           0
+  3]_AND_841_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.026ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     0.908ns|            |       0|           0
+  5]_AND_837_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.886ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[2][1][ | HOLD        |     0.832ns|            |       0|           0
+  6]_AND_835_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.834ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     0.877ns|            |       0|           0
+  [2]_AND_337_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.386ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     1.119ns|            |       0|           0
+  7]_AND_767_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.409ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     1.126ns|            |       0|           0
+  [0]_AND_341_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.064ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     0.970ns|            |       0|           0
+  [3]_AND_335_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.964ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     0.869ns|            |       0|           0
+  9]_AND_675_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.053ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     0.891ns|            |       0|           0
+  8]_AND_655_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.116ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     0.982ns|            |       0|           0
+  [5]_AND_331_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.270ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     1.084ns|            |       0|           0
+  [7]_AND_327_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.358ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     1.149ns|            |       0|           0
+  [0]_AND_319_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.230ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     1.004ns|            |       0|           0
+  [8]_AND_325_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.394ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     1.181ns|            |       0|           0
+  [2]_AND_315_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.167ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     1.031ns|            |       0|           0
+  [4]_AND_311_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.369ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     1.134ns|            |       0|           0
+  3]_AND_665_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.008ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     0.983ns|            |       0|           0
+  [5]_AND_309_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.153ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     1.000ns|            |       0|           0
+  [7]_AND_305_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.253ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     1.029ns|            |       0|           0
+  [9]_AND_301_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.396ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[13][1] | HOLD        |     1.183ns|            |       0|           0
+  [10]_AND_343_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.242ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     1.037ns|            |       0|           0
+  2]_AND_799_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.885ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     0.850ns|            |       0|           0
+  4]_AND_751_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.997ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     0.938ns|            |       0|           0
+  1]_AND_823_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.520ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     1.260ns|            |       0|           0
+  3]_AND_819_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.828ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     0.868ns|            |       0|           0
+  6]_AND_813_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.460ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     1.163ns|            |       0|           0
+  0]_AND_803_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.352ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][0][ | HOLD        |     1.174ns|            |       0|           0
+  8]_AND_809_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.409ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     1.184ns|            |       0|           0
+  3]_AND_797_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.088ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][0] | HOLD        |     0.936ns|            |       0|           0
+  [10]_AND_321_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.180ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     1.010ns|            |       0|           0
+  7]_AND_789_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.995ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     0.941ns|            |       0|           0
+  5]_AND_793_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.231ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     1.063ns|            |       0|           0
+  9]_AND_741_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.451ns|     N/A|          51
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     1.082ns|            |       0|           0
+  8]_AND_787_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.866ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[3][1][ | HOLD        |     0.860ns|            |       0|           0
+  10]_AND_783_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.200ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     1.062ns|            |       0|           0
+  0]_AND_781_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.162ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[8][1][ | HOLD        |     1.036ns|            |       0|           0
+  10]_AND_563_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.298ns|     N/A|          21
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     1.116ns|            |       0|           0
+  4]_AND_685_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.934ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     0.879ns|            |       0|           0
+  3]_AND_775_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.975ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     0.962ns|            |       0|           0
+  5]_AND_771_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.788ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     0.809ns|            |       0|           0
+  0]_AND_759_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.103ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     1.011ns|            |       0|           0
+  8]_AND_765_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.905ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     0.867ns|            |       0|           0
+  9]_AND_763_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.051ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     1.000ns|            |       0|           0
+  2]_AND_755_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.847ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     0.887ns|            |       0|           0
+  3]_AND_753_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.986ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     0.932ns|            |       0|           0
+  5]_AND_749_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.019ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     0.924ns|            |       0|           0
+  6]_AND_747_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.336ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     1.152ns|            |       0|           0
+  7]_AND_745_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.593ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][1][ | HOLD        |     0.716ns|            |       0|           0
+  8]_AND_743_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.933ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     0.922ns|            |       0|           0
+  1]_AND_669_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.283ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     1.126ns|            |       0|           0
+  4]_AND_707_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.884ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[9][0][ | HOLD        |     0.833ns|            |       0|           0
+  10]_AND_541_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.913ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     0.931ns|            |       0|           0
+  6]_AND_659_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.057ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     0.895ns|            |       0|           0
+  0]_AND_737_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.120ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     1.009ns|            |       0|           0
+  1]_AND_735_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.253ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     1.609ns|            |       0|           0
+  2]_AND_733_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.175ns|     N/A|         112
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     1.476ns|            |       0|           0
+  3]_AND_731_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.247ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     1.083ns|            |       0|           0
+  5]_AND_727_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.061ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     0.899ns|            |       0|           0
+  6]_AND_725_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.166ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     0.965ns|            |       0|           0
+  7]_AND_723_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.154ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     0.953ns|            |       0|           0
+  0]_AND_715_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.140ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     1.022ns|            |       0|           0
+  8]_AND_721_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.121ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     1.055ns|            |       0|           0
+  1]_AND_713_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.908ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][0][ | HOLD        |     1.423ns|            |       0|           0
+  9]_AND_719_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.936ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     0.881ns|            |       0|           0
+  2]_AND_711_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.016ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     1.483ns|            |       0|           0
+  3]_AND_709_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.332ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[4][0][ | HOLD        |     1.107ns|            |       0|           0
+  10]_AND_761_o                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.156ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     1.489ns|            |       0|           0
+  5]_AND_705_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     3.051ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     1.482ns|            |       0|           0
+  6]_AND_703_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.763ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     0.792ns|            |       0|           0
+  7]_AND_701_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.748ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     1.284ns|            |       0|           0
+  8]_AND_699_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.033ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[5][1][ | HOLD        |     0.968ns|            |       0|           0
+  9]_AND_697_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.996ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     0.911ns|            |       0|           0
+  2]_AND_689_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.194ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][0][ | HOLD        |     1.018ns|            |       0|           0
+  7]_AND_679_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.162ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     1.051ns|            |       0|           0
+  4]_AND_663_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.196ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[6][1][ | HOLD        |     1.058ns|            |       0|           0
+  9]_AND_653_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.063ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[14][1] | HOLD        |     0.980ns|            |       0|           0
+  [10]_AND_299_o                            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.377ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     1.148ns|            |       0|           0
+  0]_AND_649_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.552ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     1.259ns|            |       0|           0
+  1]_AND_647_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.115ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     1.024ns|            |       0|           0
+  2]_AND_645_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.178ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     0.975ns|            |       0|           0
+  3]_AND_643_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.193ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     1.040ns|            |       0|           0
+  4]_AND_641_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.318ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     1.156ns|            |       0|           0
+  5]_AND_639_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.120ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     1.009ns|            |       0|           0
+  6]_AND_637_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.211ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     1.074ns|            |       0|           0
+  7]_AND_635_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.114ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     1.023ns|            |       0|           0
+  0]_AND_627_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.063ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     0.973ns|            |       0|           0
+  8]_AND_633_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.433ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     1.198ns|            |       0|           0
+  1]_AND_625_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.209ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][0][ | HOLD        |     1.054ns|            |       0|           0
+  9]_AND_631_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.144ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     1.007ns|            |       0|           0
+  2]_AND_623_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.124ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     1.033ns|            |       0|           0
+  3]_AND_621_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.075ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     0.953ns|            |       0|           0
+  4]_AND_619_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.138ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     1.027ns|            |       0|           0
+  5]_AND_617_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.925ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     0.899ns|            |       0|           0
+  6]_AND_615_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.850ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     0.854ns|            |       0|           0
+  7]_AND_613_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     1.924ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     0.898ns|            |       0|           0
+  8]_AND_611_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net u_v | SETUP       |         N/A|     2.089ns|     N/A|           0
+  ideo_display/sys_rst_n_Snake_Array[7][1][ | HOLD        |     0.959ns|            |       0|           0
+  9]_AND_609_o                              |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+
+
+14 constraints not met.
+INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
+   constraint is not analyzed due to the following: No paths covered by this 
+   constraint; Other constraints intersect with this constraint; or This 
+   constraint was disabled by a Path Tracing Control. Please run the Timespec 
+   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 32 secs 
+Total CPU time to PAR completion: 3 secs 
+
+Peak Memory Usage:  4616 MB
+
+Placer: Placement generated during map.
+Routing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 0
+Number of info messages: 2
+
+Writing design to file hdmi_block_move_top.ncd
+
+
+
+PAR done!
