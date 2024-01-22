@@ -1,0 +1,97 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001af22912720 .scope module, "rng_custom_range" "rng_custom_range" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /INPUT 1 "enable";
+    .port_info 3 /INPUT 10 "min_value";
+    .port_info 4 /INPUT 10 "max_value";
+    .port_info 5 /OUTPUT 10 "random_num";
+L_000001af22912fa0 .functor XOR 1, L_000001af2265be50, L_000001af22988a00, C4<0>, C4<0>;
+v000001af22912d80_0 .net *"_ivl_1", 0 0, L_000001af2265be50;  1 drivers
+v000001af229128b0_0 .net *"_ivl_3", 0 0, L_000001af22988a00;  1 drivers
+o000001af22946ff8 .functor BUFZ 1, C4<z>; HiZ drive
+v000001af22912950_0 .net "clk", 0 0, o000001af22946ff8;  0 drivers
+o000001af22947028 .functor BUFZ 1, C4<z>; HiZ drive
+v000001af229129f0_0 .net "enable", 0 0, o000001af22947028;  0 drivers
+v000001af22912a90_0 .net "feedback", 0 0, L_000001af22912fa0;  1 drivers
+o000001af22947088 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v000001af2265bb30_0 .net "max_value", 9 0, o000001af22947088;  0 drivers
+o000001af229470b8 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v000001af2265bbd0_0 .net "min_value", 9 0, o000001af229470b8;  0 drivers
+v000001af2265bc70_0 .var "random_num", 9 0;
+v000001af2265bd10_0 .var "raw_random", 9 0;
+o000001af22947148 .functor BUFZ 1, C4<z>; HiZ drive
+v000001af2265bdb0_0 .net "reset", 0 0, o000001af22947148;  0 drivers
+E_000001af22946910 .event posedge, v000001af22912950_0;
+E_000001af22946190 .event posedge, v000001af2265bdb0_0, v000001af22912950_0;
+L_000001af2265be50 .part v000001af2265bd10_0, 8, 1;
+L_000001af22988a00 .part v000001af2265bd10_0, 5, 1;
+    .scope S_000001af22912720;
+T_0 ;
+    %wait E_000001af22946190;
+    %load/vec4 v000001af2265bdb0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 1, 0, 10;
+    %assign/vec4 v000001af2265bd10_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v000001af229129f0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.2, 8;
+    %load/vec4 v000001af2265bd10_0;
+    %load/vec4 v000001af22912a90_0;
+    %concat/vec4; draw_concat_vec4
+    %pad/u 10;
+    %assign/vec4 v000001af2265bd10_0, 0;
+T_0.2 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_000001af22912720;
+T_1 ;
+    %wait E_000001af22946910;
+    %load/vec4 v000001af2265bc70_0;
+    %load/vec4 v000001af2265bbd0_0;
+    %cmp/u;
+    %flag_or 5, 4;
+    %jmp/1 T_1.2, 5;
+    %flag_mov 8, 5;
+    %load/vec4 v000001af2265bb30_0;
+    %load/vec4 v000001af2265bc70_0;
+    %cmp/u;
+    %flag_or 5, 4;
+    %flag_or 5, 8;
+T_1.2;
+    %jmp/0xz  T_1.0, 5;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v000001af229129f0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.3, 8;
+    %load/vec4 v000001af2265bbd0_0;
+    %load/vec4 v000001af2265bd10_0;
+    %load/vec4 v000001af2265bb30_0;
+    %load/vec4 v000001af2265bbd0_0;
+    %sub;
+    %mod;
+    %add;
+    %assign/vec4 v000001af2265bc70_0, 0;
+T_1.3 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "rng_custom_range.v";
