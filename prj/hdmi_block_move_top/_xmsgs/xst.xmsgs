@@ -23,10 +23,10 @@
 <msg type="warning" file="HDLCompiler" num="1499" delta="old" >"C:\Users\Forest\Downloads\Compressed\FPGA_SnakeGame-DynamicFood\FPGA_SnakeGame-DynamicFood\prj\hdmi_block_move_top\ipcore_dir\convert_30to15_fifo.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">convert_30to15_fifo</arg>&gt; remains a black box.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Forest\Downloads\Compressed\FPGA_SnakeGame-DynamicFood\FPGA_SnakeGame-DynamicFood\rtl\rgbtodvi_top.v</arg>&quot; line <arg fmt="%s" index="2">167</arg>: Output port &lt;<arg fmt="%s" index="3">full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u_convert_30to15_fifo</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Forest\Downloads\Compressed\FPGA_SnakeGame-DynamicFood\FPGA_SnakeGame-DynamicFood\rtl\rgbtodvi_top.v</arg>&quot; line <arg fmt="%s" index="2">167</arg>: Output port &lt;<arg fmt="%s" index="3">full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u_convert_30to15_fifo</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Forest\Downloads\Compressed\FPGA_SnakeGame-DynamicFood\FPGA_SnakeGame-DynamicFood\rtl\rgbtodvi_top.v</arg>&quot; line <arg fmt="%s" index="2">167</arg>: Output port &lt;<arg fmt="%s" index="3">empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u_convert_30to15_fifo</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Forest\Downloads\Compressed\FPGA_SnakeGame-DynamicFood\FPGA_SnakeGame-DynamicFood\rtl\rgbtodvi_top.v</arg>&quot; line <arg fmt="%s" index="2">167</arg>: Output port &lt;<arg fmt="%s" index="3">empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u_convert_30to15_fifo</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">tmdsclkint_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">u_rgbtodvi_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;tmdsclkint_1&gt; &lt;tmdsclkint_2&gt; &lt;tmdsclkint_3&gt; &lt;tmdsclkint_4&gt; </arg>

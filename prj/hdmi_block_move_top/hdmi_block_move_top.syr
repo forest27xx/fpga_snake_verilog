@@ -19491,12 +19491,12 @@ u_video_display/sys_rst_n_Snake_Array[9][1][9]_AND_521_o|         |         |   
 =========================================================================
 
 
-Total REAL time to Xst completion: 43.00 secs
-Total CPU time to Xst completion: 43.08 secs
+Total REAL time to Xst completion: 56.00 secs
+Total CPU time to Xst completion: 56.02 secs
  
 --> 
 
-Total memory usage is 4667124 kilobytes
+Total memory usage is 4619624 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   33 (   0 filtered)

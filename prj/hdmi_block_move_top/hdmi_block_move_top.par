@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-H0SHBFI::  Tue Jan 23 04:00:14 2024
+DESKTOP-H0SHBFI::  Tue Jan 23 14:53:56 2024
 
 par -w -intstyle ise -ol high -mt off hdmi_block_move_top_map.ncd
 hdmi_block_move_top.ncd hdmi_block_move_top.pcf 
@@ -111,29 +111,29 @@ Finished initial Timing Analysis.  REAL time: 2 secs
 Starting Router
 
 
-Phase  1  : 21776 unrouted;      REAL time: 2 secs 
+Phase  1  : 21776 unrouted;      REAL time: 3 secs 
 
 Phase  2  : 19800 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 9224 unrouted;      REAL time: 6 secs 
+Phase  3  : 9224 unrouted;      REAL time: 7 secs 
 
-Phase  4  : 9980 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  4  : 9980 unrouted; (Par is working to improve performance)     REAL time: 8 secs 
 
 Updating file: hdmi_block_move_top.ncd with current fully routed design.
 
 Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 18 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 20 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 19 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 20 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 19 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 20 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 19 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 25 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 24 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 26 secs 
-Total REAL time to Router completion: 26 secs 
-Total CPU time to Router completion: 3 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 24 secs 
+Total REAL time to Router completion: 24 secs 
+Total CPU time to Router completion: 4 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -1494,8 +1494,8 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 32 secs 
-Total CPU time to PAR completion: 3 secs 
+Total REAL time to PAR completion: 30 secs 
+Total CPU time to PAR completion: 4 secs 
 
 Peak Memory Usage:  4616 MB
 
