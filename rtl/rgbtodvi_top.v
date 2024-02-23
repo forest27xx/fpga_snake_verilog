@@ -1,10 +1,8 @@
 /*******************************************************
- * FPGA-Based 贪吃蛇
-  * School:CSU
- * Class: 自动化 T2101
- * Students: 刘凯-8210211913, 吴森林-8212211224
- * Instructor: 罗旗舞
- *******************************************************/
+ * FPGA-Based 贪吃�  * School:CSU
+ * Class: 自动�T2101
+ * Students: 刘凯-8210211913, 吴森�8212211224
+ * Instructor: 罗旗� *******************************************************/
 //顶层模块
 `timescale 1 ns / 1ps
 
@@ -16,7 +14,7 @@ module rgbtodvi_top (
   input  wire       hsync,          // hsync data
   input  wire       vsync,          // vsync data
   input  wire       de,             // data enable
-  
+  output wire       music_clk,
   output wire       pclk,           // pixel clock   
   output wire       TMDS_CLK,
   output wire       TMDS_CLKB,  
@@ -48,6 +46,7 @@ assign rstin = ~tx_bufpll_lock;
     .CLK_OUT1(tx_pllclk0),     
     .CLK_OUT2(pclkx2),     
     .CLK_OUT3(pclk),    
+	 .CLK_OUT4(music_clk),
     // Status and control signals
     .LOCKED(tx_plllckd));     
   

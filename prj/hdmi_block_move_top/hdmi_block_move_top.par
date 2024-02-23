@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-LAPTOP-SAKRIO::  Thu Jan 25 02:39:16 2024
+DESK-SAKRIO::  Fri Feb 23 17:17:31 2024
 
 par -w -intstyle ise -ol high -mt off hdmi_block_move_top_map.ncd
 hdmi_block_move_top.ncd hdmi_block_move_top.pcf 
@@ -9,7 +9,7 @@ hdmi_block_move_top.ncd hdmi_block_move_top.pcf
 
 Constraints file: hdmi_block_move_top.pcf.
 Loading device for application Rf_Device from file '6slx16.nph' in environment
-D:\Application\Tool_Mathematica&CS\ISE\14.7\ISE_DS\ISE\.
+D:\Program_Krona\Coding\ISE\14.7\ISE_DS\ISE\.
    "hdmi_block_move_top" is an NCD, version 3.2, device xc6slx16, package ftg256, speed -2
 
 Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
@@ -28,16 +28,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   884 out of  18,224    4%
-    Number used as Flip Flops:                 882
+  Number of Slice Registers:                   996 out of  18,224    5%
+    Number used as Flip Flops:                 990
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
-    Number used as AND/OR logics:                2
-  Number of Slice LUTs:                      2,468 out of   9,112   27%
-    Number used as logic:                    2,397 out of   9,112   26%
-      Number using O6 output only:           1,235
-      Number using O5 output only:             222
-      Number using O5 and O6:                  940
+    Number used as AND/OR logics:                6
+  Number of Slice LUTs:                      3,522 out of   9,112   38%
+    Number used as logic:                    3,446 out of   9,112   37%
+      Number using O6 output only:           2,057
+      Number using O5 output only:             232
+      Number using O5 and O6:                1,157
       Number used as ROM:                        0
     Number used as Memory:                       3 out of   2,176    1%
       Number used as Dual Port RAM:              0
@@ -46,18 +46,18 @@ Slice Logic Utilization:
         Number using O6 output only:             3
         Number using O5 output only:             0
         Number using O5 and O6:                  0
-    Number used exclusively as route-thrus:     68
-      Number with same-slice register load:     45
-      Number with same-slice carry load:        23
+    Number used exclusively as route-thrus:     73
+      Number with same-slice register load:     46
+      Number with same-slice carry load:        27
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   837 out of   2,278   36%
-  Number of MUXCYs used:                     1,124 out of   4,556   24%
-  Number of LUT Flip Flop pairs used:        2,494
-    Number with an unused Flip Flop:         1,831 out of   2,494   73%
-    Number with an unused LUT:                  26 out of   2,494    1%
-    Number of fully used LUT-FF pairs:         637 out of   2,494   25%
+  Number of occupied Slices:                 1,275 out of   2,278   55%
+  Number of MUXCYs used:                     1,264 out of   4,556   27%
+  Number of LUT Flip Flop pairs used:        3,547
+    Number with an unused Flip Flop:         2,776 out of   3,547   78%
+    Number with an unused LUT:                  25 out of   3,547    1%
+    Number of fully used LUT-FF pairs:         746 out of   3,547   21%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -68,8 +68,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        32 out of     186   17%
-    Number of LOCed IOBs:                       28 out of      32   87%
+  Number of bonded IOBs:                        37 out of     186   19%
+    Number of LOCed IOBs:                       33 out of      37   89%
     IOB Master Pads:                             4
     IOB Slave Pads:                              4
 
@@ -80,8 +80,8 @@ Specific Feature Utilization:
     Number used as BUFIO2s:                      1
     Number used as BUFIO2_2CLKs:                 0
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       4 out of      16   25%
-    Number used as BUFGs:                        4
+  Number of BUFG/BUFGMUXs:                       5 out of      16   31%
+    Number used as BUFGs:                        5
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
@@ -93,7 +93,7 @@ Specific Feature Utilization:
   Number of BUFHs:                               0 out of     128    0%
   Number of BUFPLLs:                             1 out of       8   12%
   Number of BUFPLL_MCBs:                         0 out of       4    0%
-  Number of DSP48A1s:                            3 out of      32    9%
+  Number of DSP48A1s:                            5 out of      32   15%
   Number of ICAPs:                               0 out of       1    0%
   Number of MCBs:                                0 out of       2    0%
   Number of PCILOGICSEs:                         0 out of       2    0%
@@ -106,35 +106,36 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 3 secs 
-Finished initial Timing Analysis.  REAL time: 3 secs 
+Starting initial Timing Analysis.  REAL time: 2 secs 
+Finished initial Timing Analysis.  REAL time: 2 secs 
 
+WARNING:Par:288 - The signal speed_change_IBUF has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 15098 unrouted;      REAL time: 3 secs 
+Phase  1  : 21766 unrouted;      REAL time: 2 secs 
 
-Phase  2  : 11288 unrouted;      REAL time: 4 secs 
+Phase  2  : 17478 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 5169 unrouted;      REAL time: 5 secs 
+Phase  3  : 8437 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 5169 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
+Phase  4  : 8437 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
 Updating file: hdmi_block_move_top.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 8 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 8 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 8 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 8 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 8 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 10 secs 
-Total REAL time to Router completion: 10 secs 
-Total CPU time to Router completion: 8 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Total REAL time to Router completion: 9 secs 
+Total CPU time to Router completion: 3 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -154,20 +155,20 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net tx_ | SETUP       |         N/A|    33.019ns|     N/A|           0
-  pclk                                      | HOLD        |     0.255ns|            |       0|           0
+  Autotimespec constraint for clock net u_r | SETUP       |         N/A|     4.415ns|     N/A|           0
+  gbtodvi_top/pclkx2                        | HOLD        |     0.378ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net u_r | SETUP       |         N/A|     5.097ns|     N/A|           0
-  emote_rcv/div_clk_BUFG                    | HOLD        |     0.398ns|            |       0|           0
+  Autotimespec constraint for clock net tx_ | SETUP       |         N/A|    40.619ns|     N/A|           0
+  pclk                                      | HOLD        |     0.417ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net u_r | SETUP       |         N/A|     4.489ns|     N/A|           0
-  gbtodvi_top/pclkx2                        | HOLD        |     0.279ns|            |       0|           0
+  Autotimespec constraint for clock net mus | SETUP       |         N/A|    10.666ns|     N/A|           0
+  ic_clk                                    | HOLD        |     0.481ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net u_s | SETUP       |         N/A|     4.498ns|     N/A|           0
-  eg_led/dri_clk_BUFG                       | HOLD        |     0.576ns|            |       0|           0
+  Autotimespec constraint for clock net u_s | SETUP       |         N/A|     4.358ns|     N/A|           0
+  eg_led/dri_clk_BUFG                       | HOLD        |     0.395ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net lut | SETUP       |         N/A|     3.463ns|     N/A|           0
-  8642_2485                                 | HOLD        |     1.117ns|            |       0|           0
+  Autotimespec constraint for clock net u_r | SETUP       |         N/A|     4.590ns|     N/A|           0
+  emote_rcv/div_clk_BUFG                    | HOLD        |     0.402ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -183,16 +184,18 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 10 secs 
-Total CPU time to PAR completion: 8 secs 
+WARNING:Par:283 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Peak Memory Usage:  4528 MB
+Total REAL time to PAR completion: 9 secs 
+Total CPU time to PAR completion: 3 secs 
+
+Peak Memory Usage:  4547 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 0
+Number of warning messages: 3
 Number of info messages: 2
 
 Writing design to file hdmi_block_move_top.ncd

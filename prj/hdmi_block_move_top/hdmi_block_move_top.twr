@@ -2,7 +2,7 @@
 Release 14.7 Trace  (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-D:\Application\Tool_Mathematica&CS\ISE\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe
+D:\Program_Krona\Coding\ISE\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe
 -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml hdmi_block_move_top.twx
 hdmi_block_move_top.ncd -o hdmi_block_move_top.twr hdmi_block_move_top.pcf
 
@@ -37,14 +37,18 @@ Setup/Hold to clock sys_clk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-key_in<0>   |    2.543(R)|      SLOW  |    0.943(R)|      SLOW  |tx_pclk           |   0.000|
-key_in<1>   |    2.130(R)|      SLOW  |    1.297(R)|      SLOW  |tx_pclk           |   0.000|
-key_in<2>   |    1.813(R)|      SLOW  |    1.574(R)|      SLOW  |tx_pclk           |   0.000|
-key_in<3>   |    3.764(R)|      SLOW  |    0.737(R)|      SLOW  |tx_pclk           |   0.000|
-key_in<4>   |    1.869(R)|      SLOW  |    0.962(R)|      SLOW  |tx_pclk           |   0.000|
-key_in<5>   |    1.158(R)|      SLOW  |    2.130(R)|      SLOW  |tx_pclk           |   0.000|
-speed_change|    0.496(R)|      FAST  |    2.127(R)|      SLOW  |tx_pclk           |   0.000|
-sys_rst_n   |   34.344(R)|      SLOW  |    2.304(R)|      SLOW  |tx_pclk           |   0.000|
+chose_down  |    0.304(R)|      FAST  |    1.752(R)|      SLOW  |music_clk         |   0.000|
+chose_up    |    0.495(R)|      FAST  |    1.492(R)|      SLOW  |music_clk         |   0.000|
+key_in<0>   |    2.261(R)|      SLOW  |    1.930(R)|      SLOW  |tx_pclk           |   0.000|
+key_in<1>   |    2.020(R)|      SLOW  |    1.538(R)|      SLOW  |tx_pclk           |   0.000|
+key_in<2>   |    1.763(R)|      SLOW  |    1.861(R)|      SLOW  |tx_pclk           |   0.000|
+key_in<3>   |    5.472(R)|      SLOW  |   -1.570(R)|      SLOW  |tx_pclk           |   0.000|
+key_in<4>   |    3.379(R)|      SLOW  |    0.380(R)|      SLOW  |tx_pclk           |   0.000|
+key_in<5>   |    2.513(R)|      SLOW  |    0.595(R)|      SLOW  |tx_pclk           |   0.000|
+start_stop  |    0.155(R)|      FAST  |    1.920(R)|      SLOW  |music_clk         |   0.000|
+sys_rst_n   |    7.223(R)|      SLOW  |   -1.877(R)|      FAST  |music_clk         |   0.000|
+            |   41.507(R)|      SLOW  |    2.352(R)|      SLOW  |tx_pclk           |   0.000|
+tone_en     |    2.096(R)|      SLOW  |    2.455(R)|      SLOW  |music_clk         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock sys_clk to Pad
@@ -52,6 +56,7 @@ Clock sys_clk to Pad
               |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                      | Clock  |
 Destination   |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)     | Phase  |
 --------------+-----------------+------------+-----------------+------------+----------------------+--------+
+piano_out     |        12.655(R)|      SLOW  |         5.569(R)|      FAST  |music_clk             |   0.000|
 tmds_clk_n    |        11.067(R)|      SLOW  |         4.846(R)|      FAST  |u_rgbtodvi_top/pclkx10|   0.000|
 tmds_clk_p    |        11.013(R)|      SLOW  |         4.830(R)|      FAST  |u_rgbtodvi_top/pclkx10|   0.000|
 tmds_data_n<0>|        11.067(R)|      SLOW  |         4.846(R)|      FAST  |u_rgbtodvi_top/pclkx10|   0.000|
@@ -67,18 +72,18 @@ Clock to Setup on destination clock sys_clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sys_clk        |   33.019|    7.405|         |         |
+sys_clk        |   40.619|    6.217|         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Thu Jan 25 02:39:33 2024 
+Analysis completed Fri Feb 23 17:17:46 2024 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 4646 MB
+Peak Memory Usage: 4665 MB
 
 
 

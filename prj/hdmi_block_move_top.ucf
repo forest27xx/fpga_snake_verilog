@@ -14,6 +14,12 @@ NET "key_in[1]" LOC = D6 | IOSTANDARD = "LVCMOS33";
 NET "key_in[0]" LOC = C6 | IOSTANDARD = "LVCMOS33"; 
 NET "speed_change" LOC = J11 | IOSTANDARD = "LVCMOS33"; 
 
+NET "tone_en" LOC = P5  | IOSTANDARD = "LVCMOS33";
+NET "chose_up" LOC = N5 | IOSTANDARD = "LVCMOS33";
+NET "chose_down" LOC = N6 | IOSTANDARD = "LVCMOS33";
+NET "start_stop" LOC = R3 | IOSTANDARD = "LVCMOS33";
+
+NET "piano_out" LOC = P4 | IOSTANDARD = "LVCMOS33";
 NET "seg_led[0]" LOC = J12 | IOSTANDARD = "LVCMOS33";
 NET "seg_led[1]" LOC = H13 | IOSTANDARD = "LVCMOS33";
 NET "seg_led[2]" LOC = L12 | IOSTANDARD = "LVCMOS33";

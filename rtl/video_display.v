@@ -1,125 +1,124 @@
 /*******************************************************
- * FPGA-Based Ì°³ÔÉß
+ * FPGA-Based è´ªåƒè›‡
   * School:CSU
- * Class: ×Ô¶¯»¯ T2101
- * Students: Áõ¿­-8210211913, ÎâÉ­ÁÖ-8212211224
- * Instructor: ÂŞÆìÎè
+ * Class: è‡ªåŠ¨åŒ– T2101
+ * Students: åˆ˜å‡¯-8210211913, å´æ£®æ—-8212211224
+ * Instructor: ç½—æ——èˆ
  *******************************************************/
 
 
 
 module  video_display(
-    input             pixel_clk,                  //VGAÇı¶¯Ê±ÖÓ
-    input             sys_rst_n,                //¸´Î»ĞÅºÅ
+    input             pixel_clk,                  //VGAé©±åŠ¨æ—¶é’Ÿ
+    input             sys_rst_n,                //å¤ä½ä¿¡å·
     input      [5:0]   speed_change,
-    input      [10:0] pixel_xpos,               //ÏñËØµãºá×ø±ê
-    input      [10:0] pixel_ypos,               //ÏñËØµã×İ×ø±ê   
-    input       [5:0]key,//¿ØÖÆÉÏÏÂ×óÓÒ
-    input	 [2:0]	state_1,//²Ëµ¥×´Ì¬
-    output reg [23:0] pixel_data,                //ÏñËØµãÊı¾İ
+    input      [10:0] pixel_xpos,               //åƒç´ ç‚¹æ¨ªåæ ‡
+    input      [10:0] pixel_ypos,               //åƒç´ ç‚¹çºµåæ ‡   
+    input       [5:0]key,//æ§åˆ¶ä¸Šä¸‹å·¦å³
+    input	 [2:0]	state_1,//èœå•çŠ¶æ€
+    input [1:0]difficulty,
+    output reg [23:0] pixel_data,                //åƒç´ ç‚¹æ•°æ®
     output reg [5:0]Score
     );    
 
 //parameter define    
-parameter  H_DISP  = 11'd1280;                  //·Ö±æÂÊ--ĞĞ
-parameter  V_DISP  = 11'd720;                   //·Ö±æÂÊ--ÁĞ
+parameter  H_DISP  = 11'd1280;                  //åˆ†è¾¨ç‡--è¡Œ
+parameter  V_DISP  = 11'd720;                   //åˆ†è¾¨ç‡--åˆ—
 
-localparam SIDE_W  = 11'd40;                    //ÆÁÄ»±ß¿ò¿í¶È
-localparam BLOCK_W = 11'd20;                    //·½¿é¿í¶È
-localparam BLUE    = 24'b00000000_00000000_11111111;    // À¶É«
-localparam WHITE   = 24'b11111111_11111111_11111111;    // °×É«
-localparam BLACK   = 24'b00000000_00000000_00000000;    // ºÚÉ«
-localparam RED    = 24'b11111111_00000000_00000000; // ºìÉ«
-localparam GREEN  = 24'b00000000_11111111_00000000; // ÂÌÉ«
-localparam Crimson = 24'hDC143C;//³àºìÉ«
-//¶¨Òå¸÷ÖÖÊµÀı»¯ÑÕÉ«
+localparam SIDE_W  = 11'd40;                    //å±å¹•è¾¹æ¡†å®½åº¦
+localparam BLOCK_W = 11'd20;                    //æ–¹å—å®½åº¦
+localparam BLUE    = 24'b00000000_00000000_11111111;    // è“è‰²
+localparam WHITE   = 24'b11111111_11111111_11111111;    // ç™½è‰²
+localparam BLACK   = 24'b00000000_00000000_00000000;    // é»‘è‰²
+localparam RED    = 24'b11111111_00000000_00000000; // çº¢è‰²
+localparam GREEN  = 24'b00000000_11111111_00000000; // ç»¿è‰²
+localparam Crimson = 24'hDC143C;//èµ¤çº¢è‰²
+localparam PURPLE=24'h800080;
+//å®šä¹‰å„ç§å®ä¾‹åŒ–é¢œè‰²
 localparam FOOD_COLOR =Crimson ;
 localparam SNAKE_COLOR =GREEN ;
 localparam CHAR_COLOR =BLACK ;
 localparam BACKGROUND_COLOR =WHITE ;
-//¶¨Òå³õÊ¼Î»ÖÃ£¬ºº×Ö´óĞ¡
-localparam INI_X =11'd640 ;//³õÊ¼Î»ÖÃ
+//å®šä¹‰åˆå§‹ä½ç½®ï¼Œæ±‰å­—å¤§å°
+localparam INI_X =11'd640 ;//åˆå§‹ä½ç½®
 localparam INI_Y =11'd320 ;
 localparam StandardF =20'd742500;
 localparam HanZiSize =32 ;
 
 
-//¶¨ÒåÍ¼Æ¬              
-localparam PIC_X_START = 11'd1;      //Í¼Æ¬ÆğÊ¼µãºá×ø±ê
-localparam PIC_Y_START = 11'd1;      //Í¼Æ¬ÆğÊ¼µã×İ×ø±ê
-localparam PIC_WIDTH   = 11'd100;    //Í¼Æ¬¿í¶È
-localparam PIC_HEIGHT  = 11'd100;    //Í¼Æ¬¸ß¶È
 
-//¶¨ÒåÊ³Îï
-localparam FOOD_W =11'd20 ;//Ê³Îï´óĞ¡
+
+//å®šä¹‰é£Ÿç‰©
+localparam FOOD_W =11'd20 ;//é£Ÿç‰©å¤§å°
 localparam FOOD_X=11'd360 ;
 localparam FOOD_Y=11'd400 ;
 reg [10:0]Food_Array[1:0];
 reg FoodGene;
-    //¶¨ÒåÊ³ÎïËæ»úÊı
+    //å®šä¹‰é£Ÿç‰©éšæœºæ•°
 wire  [9:0]RandomX;
 wire [9:0]RandomY;
 
-//¶¨ÒåÈı¸ö×´Ì¬
-parameter game_start	= 3'b001;  //ÓÎÏ·½çÃæµÄ¿ªÊ¼Ñ¡Ïî
-parameter game_back		= 3'b010;  //ÓÎÏ·½çÃæµÄ·µ»ØÑ¡Ïî
-parameter game			= 3'b100;  //ÓÎÏ·ÖĞ
+//å®šä¹‰ä¸‰ä¸ªçŠ¶æ€
+parameter game_start	= 3'b001;  //æ¸¸æˆç•Œé¢çš„å¼€å§‹é€‰é¡¹
+parameter game_back		= 3'b010;  //æ¸¸æˆç•Œé¢çš„è¿”å›é€‰é¡¹
+parameter game			= 3'b100;  //æ¸¸æˆä¸­
 //reg define
-reg   [13:0]  rom_addr  ;  //ROMµØÖ·
-reg [10:0] block_x = INI_X ;                             //·½¿é×óÉÏ½Çºá×ø±ê
-reg [10:0] block_y = INI_Y ;                             //·½¿é×óÉÏ½Ç×İ×ø±ê
+reg   [13:0]  rom_addr  ;  //ROMåœ°å€
+reg [10:0] block_x = INI_X ;                             //æ–¹å—å·¦ä¸Šè§’æ¨ªåæ ‡
+reg [10:0] block_y = INI_Y ;                             //æ–¹å—å·¦ä¸Šè§’çºµåæ ‡
 
-//¶¨ÒåÉß
-reg [3:0] SnakeSize=3;//¶¨ÒåÉß³¤¶È
+//å®šä¹‰è›‡
+reg [3:0] SnakeSize=3;//å®šä¹‰è›‡é•¿åº¦
 localparam MaxSize =10 ;//16
-reg [10:0] Snake_Array[MaxSize-1:0][1:0]; // ¶¨ÒåÉßµÄÃ¿½ÚµÄ×ø±êÊı×é
+reg [10:0] Snake_Array[MaxSize-1:0][1:0]; // å®šä¹‰è›‡çš„æ¯èŠ‚çš„åæ ‡æ•°ç»„
 reg [1:0]speed=1;
 
-//¶¨Òå¼ÆÊı£¬ÓÃÓÚ¸ü¸ÄÉßµÄËÙ¶È
-reg [22:0] div_cnt;                             //Ê±ÖÓ·ÖÆµ¼ÆÊıÆ÷
-reg        h_direct;                            //·½¿éË®Æ½ÒÆ¶¯·½Ïò£¬1£ºÓÒÒÆ£¬0£º×óÒÆ
-reg        v_direct;                            //·½¿éÊúÖ±ÒÆ¶¯·½Ïò£¬1£ºÏòÏÂ£¬0£ºÓÒÒÆ
+//å®šä¹‰è®¡æ•°ï¼Œç”¨äºæ›´æ”¹è›‡çš„é€Ÿåº¦
+reg [25:0] div_cnt;                             //æ—¶é’Ÿåˆ†é¢‘è®¡æ•°å™¨
+reg        h_direct;                            //æ–¹å—æ°´å¹³ç§»åŠ¨æ–¹å‘ï¼Œ1ï¼šå³ç§»ï¼Œ0ï¼šå·¦ç§»
+reg        v_direct;                            //æ–¹å—ç«–ç›´ç§»åŠ¨æ–¹å‘ï¼Œ1ï¼šå‘ä¸‹ï¼Œ0ï¼šå³ç§»
 reg [1:0]direction;
 
-//¶¨ÒåROM
-wire          rom_rd_en ;  //ROM¶ÁÊ¹ÄÜĞÅºÅ
-wire  [23:0]  rom_rd_data ;//ROMÊı¾İ
+//å®šä¹‰ROM
+wire          rom_rd_en ;  //ROMè¯»ä½¿èƒ½ä¿¡å·
+wire  [23:0]  rom_rd_data ;//ROMæ•°æ®
 
-//¶¨ÒåÊ¹ÄÜ¶Ë
-wire move_en;                                   //·½¿éÒÆ¶¯Ê¹ÄÜĞÅºÅ£¬ÆµÂÊÎª100hz
-reg MOEN;                                       //°´¼üÒÆ¶¯ÊÇÄÜ
-reg GAME_EN=0;//ÓÎÏ·Ê¹ÄÜ
-assign move_en = (div_cnt == StandardF*10/speed) ? 1'b1 : 1'b0;//ÒÆ¶¯ËÙ¶ÈÊ¹ÄÜ±êÖ¾
-assign  rom_rd_en = 1'b1;                  //¶ÁÊ¹ÄÜÀ­¸ß£¬¼´Ò»Ö±¶ÁROMÊı¾İ
+//å®šä¹‰ä½¿èƒ½ç«¯
+wire move_en;                                   //æ–¹å—ç§»åŠ¨ä½¿èƒ½ä¿¡å·ï¼Œé¢‘ç‡ä¸º100hz
+reg MOEN;                                       //æŒ‰é”®ç§»åŠ¨æ˜¯èƒ½
+reg GAME_EN=0;//æ¸¸æˆä½¿èƒ½
+assign move_en = (div_cnt == StandardF*10/(difficulty)) ? 1'b1 : 1'b0;//ç§»åŠ¨é€Ÿåº¦ä½¿èƒ½æ ‡å¿—
+assign  rom_rd_en = 1'b1;                  //è¯»ä½¿èƒ½æ‹‰é«˜ï¼Œå³ä¸€ç›´è¯»ROMæ•°æ®
 
-//Ëæ»úÊıÉú³É
+//éšæœºæ•°ç”Ÿæˆ
 //rng_custom_range Ran1(pixel_clk,sys_rst_n,FoodGene,11'd100,11'd1000,RandomX);
 //rng_custom_range Ran2(pixel_clk,sys_rst_n,FoodGene,11'd100,11'd600,RandomY);
 
-//Ëæ»úÊıÉú³É2
+//éšæœºæ•°ç”Ÿæˆ2
 
-// Ëæ»úÊıÉú³ÉÆ÷×÷ÎªËæ»úÖÖ×Ó
+// éšæœºæ•°ç”Ÿæˆå™¨ä½œä¸ºéšæœºç§å­
 reg  [10:0] random_seed_x=11'd135;
 reg  [10:0] random_seed_y=11'd246;
 reg generate_food_signal=0;
-// Ã¿´ÎĞèÒªÉú³ÉÊ³ÎïÊ±¸üĞÂËæ»úÖÖ×Ó
+// æ¯æ¬¡éœ€è¦ç”Ÿæˆé£Ÿç‰©æ—¶æ›´æ–°éšæœºç§å­
 always @(posedge pixel_clk) begin
-    random_seed_x <= (random_seed_x + 1'b1) ^ {3'b101, random_seed_x[10:3]}; // LFSRÂß¼­
+    random_seed_x <= (random_seed_x + 1'b1) ^ {3'b101, random_seed_x[10:3]}; // LFSRé€»è¾‘
     random_seed_y <= (random_seed_y + 1'b1) ^ {3'b010, random_seed_y[10:3]}; // 
 end
-// Ê¹ÓÃËæ»úÖÖ×ÓÉú³ÉÊ³ÎïÎ»ÖÃ
+// ä½¿ç”¨éšæœºç§å­ç”Ÿæˆé£Ÿç‰©ä½ç½®
 
 
-//°´¼üÇĞ»»
+
+//æŒ‰é”®åˆ‡æ¢
 always @(posedge pixel_clk) 
 begin
         if (!sys_rst_n||dead) begin
             MOEN=0;direction=0;
         end
-        if(GAME_EN==1)//ÓÎÏ·½øÈë²ÅÄÜ½øĞĞ¸ü¸Ä·½Ïò£¬·ÀÖ¹ÓÎÏ·½øÈëÖ®Ç°¾ÍÓĞ³õËÙÒÔ¼°·½Ïò
+        if(GAME_EN==1)//æ¸¸æˆè¿›å…¥æ‰èƒ½è¿›è¡Œæ›´æ”¹æ–¹å‘ï¼Œé˜²æ­¢æ¸¸æˆè¿›å…¥ä¹‹å‰å°±æœ‰åˆé€Ÿä»¥åŠæ–¹å‘
         begin
             if (key[0] == 1) 
-                begin  // ÉÏ
+                begin  // ä¸Š
                     if(!(direction==1))
                         begin
                             direction=0;
@@ -128,14 +127,14 @@ begin
                         begin   
                             direction=direction;
                         end
-                    if(Snake_Array[0][1]==Snake_Array[1][1]+BLOCK_W)//ÉßÍ·ÔÚÏÂ£¬²»ÔÊĞíÏòÉÏ
+                    if(Snake_Array[0][1]==Snake_Array[1][1]+BLOCK_W)//è›‡å¤´åœ¨ä¸‹ï¼Œä¸å…è®¸å‘ä¸Š
                         begin
                             direction=direction;
                         end
                     MOEN=1;
                 end
             else if (key[1] == 1) 
-                begin  // ÏÂ
+                begin  // ä¸‹
                     if(!(direction==0))
                         begin
                             direction=1;
@@ -144,15 +143,15 @@ begin
                         begin
                             direction=direction;
                         end
-                    if(Snake_Array[0][1]==Snake_Array[1][1]-BLOCK_W)//ÉßÍ·ÔÚÉÏ£¬²»ÔÊĞíÏòÏÂ
+                    if(Snake_Array[0][1]==Snake_Array[1][1]-BLOCK_W)//è›‡å¤´åœ¨ä¸Šï¼Œä¸å…è®¸å‘ä¸‹
                         begin
                             direction=direction;
                         end
                     MOEN=1;
                 end
             else if (key[2] == 1) 
-                begin  // ×ó
-                    if(MOEN==0)//³õÊ¼²»ÄÜÍù×ó
+                begin  // å·¦
+                    if(MOEN==0)//åˆå§‹ä¸èƒ½å¾€å·¦
                     begin
                         direction=3;
                     end
@@ -166,7 +165,7 @@ begin
                             begin
                                 direction=direction;
                             end
-                        if(Snake_Array[0][0]==Snake_Array[1][0]+BLOCK_W)//ÉßÍ·ÔÚÓÒ£¬²»ÔÊĞíÏò×ó
+                        if(Snake_Array[0][0]==Snake_Array[1][0]+BLOCK_W)//è›‡å¤´åœ¨å³ï¼Œä¸å…è®¸å‘å·¦
                             begin
                                 direction=direction;
                             end
@@ -174,7 +173,7 @@ begin
                     MOEN=1;
                 end
             else if (key[3] == 1) 
-                begin  // ÓÒ
+                begin  // å³
                     if(!(direction==2'd2))
                     begin
                        direction=2'd3;
@@ -183,7 +182,7 @@ begin
                     begin
                         direction=2'd2;
                     end
-                    if(Snake_Array[0][0]==Snake_Array[1][0]-BLOCK_W)//ÉßÍ·ÔÚ×ó£¬²»ÔÊĞíÏòÓÒ
+                    if(Snake_Array[0][0]==Snake_Array[1][0]-BLOCK_W)//è›‡å¤´åœ¨å·¦ï¼Œä¸å…è®¸å‘å³
                         begin
                             direction=direction;
                         end
@@ -192,46 +191,46 @@ begin
         end
 end
 
-//Í¨¹ı¶ÔvgaÇı¶¯Ê±ÖÓ¼ÆÊı£¬ÊµÏÖÊ±ÖÓ·ÖÆµ£¬´Ó¶øÊµÏÖËÙ¶È¶¨Òå
+//é€šè¿‡å¯¹vgaé©±åŠ¨æ—¶é’Ÿè®¡æ•°ï¼Œå®ç°æ—¶é’Ÿåˆ†é¢‘ï¼Œä»è€Œå®ç°é€Ÿåº¦å®šä¹‰
 always @(posedge pixel_clk ) begin         
     if (!sys_rst_n)
         div_cnt <= 0;
     else begin
-        if(div_cnt < StandardF*10/speed) 
+        if(div_cnt < StandardF*10/(difficulty)) //è¿™é‡Œè¦åŠ ï¼Œå¦åˆ™é€Ÿåº¦æ”¹å˜ä¸äº†
             div_cnt <= div_cnt + 1'b1;
         else
-            div_cnt <= 0;                   //¼ÆÊı´ïÉÏÏŞºóÇåÁã
+            div_cnt <= 0;                   //è®¡æ•°è¾¾ä¸Šé™åæ¸…é›¶
     end
 end
 
-//ÇĞ»»ËÙ¶È
-always @(posedge speed_change[0]) begin
-    if(speed<3)
+//åˆ‡æ¢é€Ÿåº¦
+always @(posedge pixel_clk) begin
+    if(speed_change[0]==1)
     begin
-        speed=speed+1;
-    end
-    else if(speed)
-    begin
-        speed=1;
-    end
-    else begin
-        speed=speed;
+        if(speed<=3)
+        begin
+            speed=speed+1;
+        end
+        else
+        begin
+            speed=1;
+        end
     end
 end
 
-//¶¨ÒåÒ»¶ÑÁÙÊ±±äÁ¿£¬ÕäÄİÌìµÄverilog£¬²»ÄÜÖ±½Ó´´½¨
+//å®šä¹‰ä¸€å †ä¸´æ—¶å˜é‡ï¼Œçå¦®å¤©çš„verilogï¼Œä¸èƒ½ç›´æ¥åˆ›å»º
 integer index0;
 integer index1;
 integer index2;
 integer index3;
 integer index4;
-integer index5;//ÅĞ¶ÏÏà×²ËÀÍö±êÖ¾
-reg dead=0;//ËÀÍö±êÖ¾
+integer index5;//åˆ¤æ–­ç›¸æ’æ­»äº¡æ ‡å¿—
+reg dead=0;//æ­»äº¡æ ‡å¿—
 
-//ÉßÒÆ¶¯Ä£¿é£¬¸ù¾İ·½¿éÒÆ¶¯·½Ïò£¬¸Ä±äÆä×İºá×ø±ê
+//è›‡ç§»åŠ¨æ¨¡å—ï¼Œæ ¹æ®æ–¹å—ç§»åŠ¨æ–¹å‘ï¼Œæ”¹å˜å…¶çºµæ¨ªåæ ‡
 always @(posedge pixel_clk ) begin  
-    //    Ó¦¸Ã·Åµ½ENÍâÃæ£¬·ñÔò»áµ¼ÖÂÌø×ª²»³öËÀÍö½çÃæÖ®Íâ
-    //ÇĞ»»ÔòËÀÍöÂß¼­±ä0
+    //    åº”è¯¥æ”¾åˆ°ENå¤–é¢ï¼Œå¦åˆ™ä¼šå¯¼è‡´è·³è½¬ä¸å‡ºæ­»äº¡ç•Œé¢ä¹‹å¤–
+    //åˆ‡æ¢åˆ™æ­»äº¡é€»è¾‘å˜0
     if(state_1==game_start)
         begin
             dead=0;
@@ -241,7 +240,7 @@ always @(posedge pixel_clk ) begin
             if (!sys_rst_n||!GAME_EN) 
                 begin
                     SnakeSize=3;
-                    for(index0=0; index0<MaxSize; index0=index0+1) //ÒòÎªforÑ­»·µÄÉÏÏŞ²»ÄÜÉèÎª±äÁ¿£¨²»¿É×ÛºÏ£©£¬Ö»ÄÜÓÃ¶¨Öµ£¬¿É¶ÔÏÂ±ê½øĞĞÅĞ¶ÏÊÇ·ñ·ûºÏ½çÏŞ£¬´Ó¶øÊµÏÖÉ¨Ãè
+                    for(index0=0; index0<MaxSize; index0=index0+1) //å› ä¸ºforå¾ªç¯çš„ä¸Šé™ä¸èƒ½è®¾ä¸ºå˜é‡ï¼ˆä¸å¯ç»¼åˆï¼‰ï¼Œåªèƒ½ç”¨å®šå€¼ï¼Œå¯å¯¹ä¸‹æ ‡è¿›è¡Œåˆ¤æ–­æ˜¯å¦ç¬¦åˆç•Œé™ï¼Œä»è€Œå®ç°æ‰«æ
                         begin
                             if(index0<SnakeSize)
                                 begin
@@ -254,21 +253,21 @@ always @(posedge pixel_clk ) begin
                                 Snake_Array[index0][1] = 0;
                             end
                         end
-                    Food_Array[0] <= 11'd360; // ¼ÙÉèµÄ³õÊ¼X×ø±ê
-                    Food_Array[1] <= 11'd400; // ¼ÙÉèµÄ³õÊ¼Y×ø±ê
+                    Food_Array[0] <= 11'd360; // å‡è®¾çš„åˆå§‹Xåæ ‡
+                    Food_Array[1] <= 11'd400; // å‡è®¾çš„åˆå§‹Yåæ ‡
                 end
             if (move_en&&MOEN&&GAME_EN) 
                 begin
-                    case (direction)//¸ù¾İ·½ÏòµÄ²»Í¬£¬½øĞĞ²»Í¬µÄÒÆÎ»²ßÂÔ
+                    case (direction)//æ ¹æ®æ–¹å‘çš„ä¸åŒï¼Œè¿›è¡Œä¸åŒçš„ç§»ä½ç­–ç•¥
                         2'd0:
                         begin
-                            for(index1=MaxSize-1; index1>0; index1=index1-1) begin//²ÉÓÃforÑ­»·µÄĞÎÊ½£¬´ÓºóÃæÍùÇ°Ãæµİ½ø
+                            for(index1=MaxSize-1; index1>0; index1=index1-1) begin//é‡‡ç”¨forå¾ªç¯çš„å½¢å¼ï¼Œä»åé¢å¾€å‰é¢é€’è¿›
                                 if(index1<SnakeSize)begin
                                 Snake_Array[index1][0] = Snake_Array[index1-1][0];
                                 Snake_Array[index1][1] = Snake_Array[index1-1][1];
                                 end
                             end
-                            Snake_Array[0][1] = Snake_Array[0][1] -BLOCK_W;//ÕâÀïÒª×¢ÒâÊÇ¼ÓBLOCK_W,Ö®Ç°ÉèÎª1£¬µ¼ÖÂÉßÖØºÏ³ÉÒ»¸ö·½¿éÁË¡£»¹ÒÔÎªÊÇÉßÒÆ¶¯ºÍdrawÆµÂÊµÄÎÊÌâ
+                            Snake_Array[0][1] = Snake_Array[0][1] -BLOCK_W;//è¿™é‡Œè¦æ³¨æ„æ˜¯åŠ BLOCK_W,ä¹‹å‰è®¾ä¸º1ï¼Œå¯¼è‡´è›‡é‡åˆæˆä¸€ä¸ªæ–¹å—äº†ã€‚è¿˜ä»¥ä¸ºæ˜¯è›‡ç§»åŠ¨å’Œdrawé¢‘ç‡çš„é—®é¢˜
                         end
                         2'b1:
                         begin
@@ -288,20 +287,20 @@ always @(posedge pixel_clk ) begin
                                 Snake_Array[index3][1] = Snake_Array[index3-1][1];
                                 end
                             end
-                            Snake_Array[0][0] = Snake_Array[0][0] -BLOCK_W; // ĞŞÕıÎªx×ø±ê
+                            Snake_Array[0][0] = Snake_Array[0][0] -BLOCK_W; // ä¿®æ­£ä¸ºxåæ ‡
                         end
                         2'd3:
                         begin
                             for(index4=MaxSize-1; index4>0; index4=index4-1) begin
                                 if(index4<SnakeSize)begin
-                                Snake_Array[index4][0] = Snake_Array[index4-1][0]; // ĞŞÕı±äÁ¿Ãû³Æ
+                                Snake_Array[index4][0] = Snake_Array[index4-1][0]; // ä¿®æ­£å˜é‡åç§°
                                 Snake_Array[index4][1] = Snake_Array[index4-1][1];
                                 end
                             end
-                            Snake_Array[0][0] = Snake_Array[0][0] + BLOCK_W; // ĞŞÕıÎªx×ø±ê
+                            Snake_Array[0][0] = Snake_Array[0][0] + BLOCK_W; // ä¿®æ­£ä¸ºxåæ ‡
                         end
                     endcase
-                    //Ïà×²ËÀÍöÂß¼­
+                    //ç›¸æ’æ­»äº¡é€»è¾‘
                     for(index5=1;index5<MaxSize&&dead==0; index5=index5+1) begin
                                 if(index5<SnakeSize)
                                     begin
@@ -315,7 +314,7 @@ always @(posedge pixel_clk ) begin
                             dead=1;
                         // GAME_EN=0;
                         end
-                    //³Ôµ½Ê³Îï,Ê³Îï¸üĞÂÂß¼­        
+                    //åƒåˆ°é£Ÿç‰©,é£Ÿç‰©æ›´æ–°é€»è¾‘        
                     if((Snake_Array[0][0]>=Food_Array[0])&&(Snake_Array[0][0]<Food_Array[0]+FOOD_W)&&(Snake_Array[0][1]>=Food_Array[1])&&(Snake_Array[0][1]<Food_Array[1]+FOOD_W))
                         begin
                             if(SnakeSize<MaxSize)
@@ -326,7 +325,7 @@ always @(posedge pixel_clk ) begin
                             begin
                                 SnakeSize=MaxSize;
                             end
-                            //     // Éú³ÉĞÂµÄÊ³ÎïÎ»ÖÃ
+                            //     // ç”Ÿæˆæ–°çš„é£Ÿç‰©ä½ç½®
                             // Food_Array[0]=100+((Snake_Array[0][0]*13+Snake_Array[1][0]*7+Snake_Array[2][0]*2+234)%((1200-100)/20))*20;
                             // Food_Array[1]=100+((Snake_Array[0][1]*13+Snake_Array[1][1]*7+Snake_Array[2][1]*2+Food_Array[0]+123)%((600-100)/20))*20;
                         
@@ -337,12 +336,43 @@ always @(posedge pixel_clk ) begin
         end
 end
 
-//ÓÎÏ·½áÊø×Ö·û
-localparam array_gameover_x = 640-2*HanZiSize;//×Ö·ûx×ø±ê
-localparam array_gameover_y = 360-1*HanZiSize;//×Ö·ûy×ø±ê
-localparam size_gameover =4 ;
-reg     [159:0] array_gameover    [31:0]  ;   //×Ö·û¿í160 £¬¸ß32
-//×Ö·û¡°ÓÎÏ·½áÊø¡±
+//å®šä¹‰æ–‡å­—ç›¸å…³å‚æ•°
+localparam Gap =40 ;
+localparam xcenter =600 ;
+localparam ycenter =360 ;
+//å®šä¹‰å›¾ç‰‡              
+localparam PIC_X_START = xcenter-50;      //å›¾ç‰‡èµ·å§‹ç‚¹æ¨ªåæ ‡
+localparam PIC_Y_START = ycenter+Gap*(-7);      //å›¾ç‰‡èµ·å§‹ç‚¹çºµåæ ‡
+localparam PIC_WIDTH   = 11'd100;    //å›¾ç‰‡å®½åº¦
+localparam PIC_HEIGHT  = 11'd100;    //å›¾ç‰‡é«˜åº¦
+reg [7:0] gray_value; // ç”¨äºå­˜å‚¨è®¡ç®—å‡ºçš„ç°åº¦å€¼
+//æ¸¸æˆç»“æŸå­—ç¬¦
+localparam array_gameover_size =4 ;
+localparam array_gameover_x = xcenter-(array_gameover_size/2)*HanZiSize;//å­—ç¬¦xåæ ‡
+localparam array_gameover_y = ycenter-1*HanZiSize;//å­—ç¬¦yåæ ‡
+reg     [127:0] array_gameover    [31:0]  ;   //å­—ç¬¦å®½160 ï¼Œé«˜32
+
+localparam array_title_size =6 ;
+localparam array_title_x = xcenter-(array_title_size/2)*HanZiSize;//å­—ç¬¦xåæ ‡
+localparam array_title_y = (ycenter+Gap*(-3))-1*HanZiSize;//å­—ç¬¦yåæ ‡
+reg     [191:0] array_title    [31:0]  ;   //å­—ç¬¦å®½160 ï¼Œé«˜32
+//å­—ç¬¦â€œæ¸¸æˆç»“æŸâ€//æµ‹è¯•
+localparam array_easy_size =2 ;
+localparam array_easy_x = xcenter-(array_easy_size/2)*HanZiSize;//å­—ç¬¦xåæ ‡
+localparam array_easy_y = (ycenter+Gap*(-1))-1*HanZiSize;//å­—ç¬¦yåæ ‡
+reg     [63:0] array_easy    [31:0]  ;   //å­—ç¬¦å®½160 ï¼Œé«˜32
+
+localparam array_normal_size =2 ;
+localparam array_normal_x = xcenter-(array_normal_size/2)*HanZiSize;//å­—ç¬¦xåæ ‡
+localparam array_normal_y = (ycenter+Gap*(0))-1*HanZiSize;//å­—ç¬¦yåæ ‡
+reg     [63:0] array_normal    [31:0]  ;   //å­—ç¬¦å®½160 ï¼Œé«˜32
+
+//å­—ç¬¦éš¾
+localparam array_hard_size =2 ;
+localparam array_hard_x = xcenter-(array_hard_size/2)*HanZiSize;//å­—ç¬¦xåæ ‡
+localparam array_hard_y = (ycenter+Gap*(1))-1*HanZiSize;//å­—ç¬¦yåæ ‡
+reg     [63:0] array_hard    [31:0]  ;   //å­—ç¬¦å®½160 ï¼Œé«˜32
+
 always@(posedge pixel_clk)
     begin
         array_gameover[0] <= 128'h00000000000000000000000000000000;
@@ -378,39 +408,343 @@ always@(posedge pixel_clk)
         array_gameover[30] <= 128'h060c03800030001e78000038401e0018;
         array_gameover[31] <= 128'h00000000000000000000000000000000;
     end
- 
-integer index_draw;
-reg found_match = 0; // Ìí¼ÓÒ»¸ö±êÖ¾À´Ö¸Ê¾ÊÇ·ñÕÒµ½Æ¥Åä
 
-// ¸ø²»Í¬µÄÇøÓò»æÖÆ²»Í¬µÄÑÕÉ«
+
+always@(posedge pixel_clk)
+    begin
+    array_title[4] <= 192'h001fc0000000f00003800f000003800001f1e00001e03bc0;
+    array_title[5] <= 192'h001ee0000000f00003800f000003800001e1c00001c039f0;
+    array_title[6] <= 192'h003f78003871e018038187000003800001c3c03801c038f0;
+    array_title[7] <= 192'h007fbe003ff9c03c0381871c0003800003c3807c01c338f0;
+    array_title[8] <= 192'h01f3df803873fffe0381fffe000380380387fffe01c7b870;
+    array_title[9] <= 192'h03e3cffe38738000339f801e0003807c0787700001fff838;
+    array_title[10] <= 192'h0f81cffe387700003fff80387ffffffe078f700001c0383c;
+    array_title[11] <= 192'h3fffff7c387f00003bbf8038380380000fce700001c03ffe;
+    array_title[12] <= 192'h79c03e00387e00003bbff0300003c0000fdc700001cfff00;
+    array_title[13] <= 192'h60007c00387c03c03bbc78000003c0001f9c706001c73c20;
+    array_title[14] <= 192'h0000f800387fffe03bbc70300007c0001fb870f001c03c78;
+    array_title[15] <= 192'h0380f380387707c03bbc70780007e0003bf07ff801c03c7c;
+    array_title[16] <= 192'h03ffffc038700f803bbc70f80007e0003be0700039ce1cf8;
+    array_title[17] <= 192'h03c0078038701f003bbc71f000077000738070003fff1cf0;
+    array_title[18] <= 192'h03c3078038701e003bbc73e0000f700063807000380e1cf0;
+    array_title[19] <= 192'h03c3c78038703c003ffc7f80000f780003807000380e1de0;
+    array_title[20] <= 192'h03c3c7803ff078003bbc7e00000e380003807030380e1fc0;
+    array_title[21] <= 192'h03c387803870f01833a07800001e1c0003807078380e1fc0;
+    array_title[22] <= 192'h03c787803871f01803f8701c001c1e0003807ffc380e0f8c;
+    array_title[23] <= 192'h03c787803871e01803bc701c003c0f0003807000380e0f8c;
+    array_title[24] <= 192'h03c707803803c018039c701c0078078003807000380e1f9c;
+    array_title[25] <= 192'h038ffc000007801803fe701c00f007e003807000380e3f9c;
+    array_title[26] <= 192'h001e7fc00007803c3ffe701c01e003f0038070003ffe7bfc;
+    array_title[27] <= 192'h003c0ff00007803e7f0e701c03c001fe03807000380ff1fc;
+    array_title[28] <= 192'h01f803f80007fffe780c7ffe0f8000fe03807000380fe0fc;
+    array_title[29] <= 192'h07e000f80003fffc30007ffe3e00003803807000380f807c;
+    array_title[30] <= 192'h3f00007800000000000000007800000003807000001e003e;
+    array_title[31] <= 192'h000000000000000000000000000000000000000000000000;
+    end
+
+
+
+//å­—ç¬¦â€œç®€å•â€
+always@(posedge pixel_clk)
+    begin
+    array_easy[0] <= 64'h0000000000000000;
+    array_easy[1] <= 64'h0000000000000000;
+    array_easy[2] <= 64'h0380380000e00e00;
+    array_easy[3] <= 64'h03c07c0000781f00;
+    array_easy[4] <= 64'h07877838003c1e00;
+    array_easy[5] <= 64'h07fffffc003c3c00;
+    array_easy[6] <= 64'h0ff0ef00001c3800;
+    array_easy[7] <= 64'h1e79c780071c71c0;
+    array_easy[8] <= 64'h3c7b878007ffffe0;
+    array_easy[9] <= 64'h7bfb0300078381e0;
+    array_easy[10] <= 64'h71e00070078381c0;
+    array_easy[11] <= 64'h0dfffff8078381c0;
+    array_easy[12] <= 64'h0ff70078078381c0;
+    array_easy[13] <= 64'h0fe0007007ffffc0;
+    array_easy[14] <= 64'h0e183870078381c0;
+    array_easy[15] <= 64'h0e1ffc70078381c0;
+    array_easy[16] <= 64'h0e1c3c70078381c0;
+    array_easy[17] <= 64'h0e1c3870078381c0;
+    array_easy[18] <= 64'h0e1c387007ffffc0;
+    array_easy[19] <= 64'h0e1c3870078381c0;
+    array_easy[20] <= 64'h0e1ff870078381b8;
+    array_easy[21] <= 64'h0e1c38700603807c;
+    array_easy[22] <= 64'h0e1c38707ffffffe;
+    array_easy[23] <= 64'h0e1c387030038000;
+    array_easy[24] <= 64'h0e1ff87000038000;
+    array_easy[25] <= 64'h0e1c387000038000;
+    array_easy[26] <= 64'h0e1c307000038000;
+    array_easy[27] <= 64'h0e000ff000038000;
+    array_easy[28] <= 64'h0e000ff000038000;
+    array_easy[29] <= 64'h0e0001f000038000;
+    array_easy[30] <= 64'h0e0000e000038000;
+    array_easy[31] <= 64'h0000000000000000;
+    end
+
+
+//å­—ç¬¦â€œæ™®é€šâ€
+always@(posedge pixel_clk)
+    begin
+        array_normal[0] <= 64'h0000000000000000;
+        array_normal[1] <= 64'h0000000000000000;
+        array_normal[2] <= 64'h00700e00000000e0;
+        array_normal[3] <= 64'h003c1f001c1ffff0;
+        array_normal[4] <= 64'h003e1e001e0e03f0;
+        array_normal[5] <= 64'h001e3c300f01e7c0;
+        array_normal[6] <= 64'h001e78780f00ff00;
+        array_normal[7] <= 64'h1ffffffc07007c00;
+        array_normal[8] <= 64'h0e1e7980071c3c78;
+        array_normal[9] <= 64'h071e79e0001ffff8;
+        array_normal[10] <= 64'h03de79e0001c3878;
+        array_normal[11] <= 64'h01fe7bc0001c3878;
+        array_normal[12] <= 64'h01fe7b80039c3878;
+        array_normal[13] <= 64'h01fe7f187fdffff8;
+        array_normal[14] <= 64'h00de7e3c7f9c3878;
+        array_normal[15] <= 64'hfffffffe079c3878;
+        array_normal[16] <= 64'h70000000079c3878;
+        array_normal[17] <= 64'h00000000079c3878;
+        array_normal[18] <= 64'h01c00780079ffff8;
+        array_normal[19] <= 64'h01ffffc0079c3878;
+        array_normal[20] <= 64'h01e00780079c3878;
+        array_normal[21] <= 64'h01e00780079c3878;
+        array_normal[22] <= 64'h01e00780079c3878;
+        array_normal[23] <= 64'h01ffff80079c3ff8;
+        array_normal[24] <= 64'h01e007800f9c3ff0;
+        array_normal[25] <= 64'h01e007801ffc30f0;
+        array_normal[26] <= 64'h01e007807cf80060;
+        array_normal[27] <= 64'h01e00780787fffff;
+        array_normal[28] <= 64'h01ffff80781ffffc;
+        array_normal[29] <= 64'h01e007803007fff8;
+        array_normal[30] <= 64'h01e0070000000000;
+        array_normal[31] <= 64'h0000000000000000;
+    end
+
+
+//å­—ç¬¦â€œå›°éš¾â€
+always@(posedge pixel_clk)
+    begin
+       array_hard[0] <= 64'h0000000000000000;
+        array_hard[1] <= 64'h0000000000000000;
+        array_hard[2] <= 64'h1c0000700000ee00;
+        array_hard[3] <= 64'h1ffffff80000ff00;
+        array_hard[4] <= 64'h1e03c0780000f780;
+        array_hard[5] <= 64'h1e03e0780000f780;
+        array_hard[6] <= 64'h1e03c078003de398;
+        array_hard[7] <= 64'h1e03c0783fffe33c;
+        array_hard[8] <= 64'h1e03c3781c3dfffc;
+        array_hard[9] <= 64'h1e03c7f80039c700;
+        array_hard[10] <= 64'h1ffffff8303bc700;
+        array_hard[11] <= 64'h1fc7c078387bc700;
+        array_hard[12] <= 64'h1e0fc0781c7fc730;
+        array_hard[13] <= 64'h1e0fc0780e77c778;
+        array_hard[14] <= 64'h1e1ff0780f7ffffc;
+        array_hard[15] <= 64'h1e1ffc7807ffc700;
+        array_hard[16] <= 64'h1e3ffe7803fdc700;
+        array_hard[17] <= 64'h1e3bdf7801f9c700;
+        array_hard[18] <= 64'h1e7bcff801e1c700;
+        array_hard[19] <= 64'h1ef3c7f803f1c730;
+        array_hard[20] <= 64'h1fe3c7f803f1c778;
+        array_hard[21] <= 64'h1fc3c37807f9fffc;
+        array_hard[22] <= 64'h1f83c0780739c700;
+        array_hard[23] <= 64'h1e03c0780e3dc700;
+        array_hard[24] <= 64'h1e03c0781e3dc700;
+        array_hard[25] <= 64'h1e03c0783c19c718;
+        array_hard[26] <= 64'h1e0300787819c73c;
+        array_hard[27] <= 64'h1e000078f001fffe;
+        array_hard[28] <= 64'h1ffffff8c001c000;
+        array_hard[29] <= 64'h1e0000780001c000;
+        array_hard[30] <= 64'h1e0000700001c000;
+        array_hard[31] <= 64'h0000000000000000;
+    end
+
+localparam array_select_size =1 ;
+
+localparam array_select_x = xcenter-(array_select_size/2)*HanZiSize-Gap*3;//å­—ç¬¦xåæ ‡
+// wire array_select_y;
+// assign array_select_y = ((difficulty == 3) ? array_hard_y :
+//                         ((difficulty == 2) ? array_normal_y :
+//                         array_easy_y)); // æ³¨æ„ï¼šè¿™é‡Œä½¿ç”¨array_select_yå¯èƒ½å¯¼è‡´é€»è¾‘é”™è¯¯ï¼Œé™¤éå®ƒä¹‹å‰å·²è¢«èµ‹å€¼
+reg array_select_y;
+always @(posedge pixel_clk or negedge sys_rst_n) 
+begin
+    if(!sys_rst_n)
+    begin
+        array_select_y=array_easy_y;
+    end
+    else 
+    begin
+    case(difficulty)
+        1:array_select_y=array_easy_y;
+        2:array_select_y=array_normal_y;
+        3:array_select_y=array_hard_y;
+        default:array_select_y=array_easy_y;
+    endcase
+    end
+end
+
+
+reg     [63:0] array_select    [31:0]  ;   //å­—ç¬¦å®½160 ï¼Œé«˜32
+
+//å­—ç¬¦â€œ@â€
+always@(posedge pixel_clk)
+    begin
+       array_select[0] <= 32'h00000000;
+        array_select[1] <= 32'h00000000;
+        array_select[2] <= 32'h001ffc00;
+        array_select[3] <= 32'h007fff00;
+        array_select[4] <= 32'h01f80f80;
+        array_select[5] <= 32'h03e003e0;
+        array_select[6] <= 32'h07c001e0;
+        array_select[7] <= 32'h0f8000f0;
+        array_select[8] <= 32'h1f000078;
+        array_select[9] <= 32'h1e000038;
+        array_select[10] <= 32'h3c07c038;
+        array_select[11] <= 32'h3c1ff818;
+        array_select[12] <= 32'h3c3ef81c;
+        array_select[13] <= 32'h387c781c;
+        array_select[14] <= 32'h78787818;
+        array_select[15] <= 32'h78f07038;
+        array_select[16] <= 32'h78f0f038;
+        array_select[17] <= 32'h78f0f038;
+        array_select[18] <= 32'h38f0f070;
+        array_select[19] <= 32'h3cf1e070;
+        array_select[20] <= 32'h3cf1e0e0;
+        array_select[21] <= 32'h3c7be3e0;
+        array_select[22] <= 32'h3e7fffc0;
+        array_select[23] <= 32'h1f1eff00;
+        array_select[24] <= 32'h0f000000;
+        array_select[25] <= 32'h0f8000e0;
+        array_select[26] <= 32'h07e001e0;
+        array_select[27] <= 32'h03f807c0;
+        array_select[28] <= 32'h00ffff80;
+        array_select[29] <= 32'h003ffe00;
+        array_select[30] <= 32'h0003c000;
+        array_select[31] <= 32'h00000000;
+    end
+integer index_draw;
+reg found_match = 0; // æ·»åŠ ä¸€ä¸ªæ ‡å¿—æ¥æŒ‡ç¤ºæ˜¯å¦æ‰¾åˆ°åŒ¹é…
+
+// ç»™ä¸åŒçš„åŒºåŸŸç»˜åˆ¶ä¸åŒçš„é¢œè‰²
 always @(posedge pixel_clk) 
 begin
     case (state_1)
-        game_start: begin
+        game_start: 
+        begin
             GAME_EN=0;
-                // »æÖÆÍ¼Æ¬
+                // ç»˜åˆ¶å›¾ç‰‡
             if((pixel_xpos >= PIC_X_START) && (pixel_xpos < PIC_X_START + PIC_WIDTH)&& (pixel_ypos >= PIC_Y_START)&&(pixel_ypos < PIC_Y_START + PIC_HEIGHT))
-                pixel_data <= rom_rd_data ;  //ÏÔÊ¾Í¼Æ¬
+              if(key[3]== 0 )
+                pixel_data <= rom_rd_data ;  //æ˜¾ç¤ºå›¾ç‰‡
+              else begin
+					      gray_value = (rom_rd_data[23:16]*30 + rom_rd_data[15:8]*59 + rom_rd_data[7:0]*11) / 100;//ç°åº¦è®¡ç®—
+                pixel_data <= {gray_value, gray_value, gray_value};     
+						    end
+            else  if(pixel_ypos-array_title_y>=0&&pixel_ypos-array_title_y<32&&array_title_size*HanZiSize-pixel_xpos+array_title_x>=0&&array_title_size*HanZiSize-pixel_xpos+array_title_x<array_title_size*HanZiSize)
+                    begin
+                    
+                    if(array_title[pixel_ypos-array_title_y][array_title_size*HanZiSize-pixel_xpos+array_title_x])
+                    begin
+                        pixel_data<=CHAR_COLOR;
+                    end
+                    else begin
+                        pixel_data<=BACKGROUND_COLOR;
+                    end
+                    end
+            else  if(pixel_ypos-array_easy_y>=0&&pixel_ypos-array_easy_y<32&&array_easy_size*HanZiSize-pixel_xpos+array_easy_x>=0&&array_easy_size*HanZiSize-pixel_xpos+array_easy_x<array_easy_size*HanZiSize)
+                    begin
+                    
+                    if(array_easy[pixel_ypos-array_easy_y][array_easy_size*HanZiSize-pixel_xpos+array_easy_x])
+                    begin
+                        pixel_data<=GREEN;
+                    end
+                    else begin
+                        pixel_data<=BACKGROUND_COLOR;
+                    end
+                    end
+            else  if(pixel_ypos-array_normal_y>=0&&pixel_ypos-array_normal_y<32&&array_normal_size*HanZiSize-pixel_xpos+array_normal_x>=0&&array_normal_size*HanZiSize-pixel_xpos+array_normal_x<array_normal_size*HanZiSize)
+                    begin
+                    
+                    if(array_normal[pixel_ypos-array_normal_y][array_normal_size*HanZiSize-pixel_xpos+array_normal_x])
+                    begin
+                        pixel_data<=BLUE;
+                    end
+                    else begin
+                        pixel_data<=BACKGROUND_COLOR;
+                    end
+                    end
+             else  if(pixel_ypos-array_hard_y>=0&&pixel_ypos-array_hard_y<32&&array_hard_size*HanZiSize-pixel_xpos+array_hard_x>=0&&array_hard_size*HanZiSize-pixel_xpos+array_hard_x<array_hard_size*HanZiSize)
+                    begin
+                    
+                    if(array_hard[pixel_ypos-array_hard_y][array_hard_size*HanZiSize-pixel_xpos+array_hard_x])
+                    begin
+                        pixel_data<=RED;
+                    end
+                    else begin
+                        pixel_data<=BACKGROUND_COLOR;
+                    end
+                    end
+            else  if((pixel_ypos-array_easy_y>=0&&pixel_ypos-array_easy_y<32&&array_select_size*HanZiSize-pixel_xpos+array_select_x>=0&&array_select_size*HanZiSize-pixel_xpos+array_select_x<array_select_size*HanZiSize)||(pixel_ypos-array_normal_y>=0&&pixel_ypos-array_normal_y<32&&array_select_size*HanZiSize-pixel_xpos+array_select_x>=0&&array_select_size*HanZiSize-pixel_xpos+array_select_x<array_select_size*HanZiSize)||(pixel_ypos-array_hard_y>=0&&pixel_ypos-array_hard_y<32&&array_select_size*HanZiSize-pixel_xpos+array_select_x>=0&&array_select_size*HanZiSize-pixel_xpos+array_select_x<array_select_size*HanZiSize))
+                    begin
+                    case (difficulty)
+                        1: begin
+                             if((array_select[pixel_ypos-array_easy_y][array_select_size*HanZiSize-pixel_xpos+array_select_x])&&(pixel_ypos-array_easy_y>=0&&pixel_ypos-array_easy_y<32&&array_select_size*HanZiSize-pixel_xpos+array_select_x>=0&&array_select_size*HanZiSize-pixel_xpos+array_select_x<array_select_size*HanZiSize))
+                                begin
+                                    pixel_data<=RED;
+                                end
+                                else begin
+                                    pixel_data<=BACKGROUND_COLOR;
+                                end
+                             end
+                         2: begin
+                             if((array_select[pixel_ypos-array_normal_y][array_select_size*HanZiSize-pixel_xpos+array_select_x])&&(pixel_ypos-array_normal_y>=0&&pixel_ypos-array_normal_y<32&&array_select_size*HanZiSize-pixel_xpos+array_select_x>=0&&array_select_size*HanZiSize-pixel_xpos+array_select_x<array_select_size*HanZiSize))
+                                begin
+                                    pixel_data<=RED;
+                                end
+                                else begin
+                                    pixel_data<=BACKGROUND_COLOR;
+                                end
+                             end
+                         3: begin
+                             if((array_select[pixel_ypos-array_hard_y][array_select_size*HanZiSize-pixel_xpos+array_select_x])&&(pixel_ypos-array_hard_y>=0&&pixel_ypos-array_hard_y<32&&array_select_size*HanZiSize-pixel_xpos+array_select_x>=0&&array_select_size*HanZiSize-pixel_xpos+array_select_x<array_select_size*HanZiSize))
+                                begin
+                                    pixel_data<=RED;
+                                end
+                                else begin
+                                    pixel_data<=BACKGROUND_COLOR;
+                                end
+                             end
+                        default: begin
+                             if((array_select[pixel_ypos-array_easy_y][array_select_size*HanZiSize-pixel_xpos+array_select_x])&&(pixel_ypos-array_easy_y>=0&&pixel_ypos-array_easy_y<32&&array_select_size*HanZiSize-pixel_xpos+array_select_x>=0&&array_select_size*HanZiSize-pixel_xpos+array_select_x<array_select_size*HanZiSize))
+                                begin
+                                    pixel_data<=RED;
+                                end
+                                else begin
+                                    pixel_data<=BACKGROUND_COLOR;
+                                end
+                             end
+                    endcase
+                   
+                    end
             else
                 begin
-                    pixel_data <= BACKGROUND_COLOR; // ÆäËûÇøÓòÏÔÊ¾±³¾°ÑÕÉ«
+                    pixel_data <= BACKGROUND_COLOR; // å…¶ä»–åŒºåŸŸæ˜¾ç¤ºèƒŒæ™¯é¢œè‰²
                 end
         end
         // game_back: begin
         //     GAME_EN=0;
         //   if(pixel_xpos[9:4] >=40 && pixel_xpos[9:4] < 50 && pixel_ypos[9:4] >= 20 && pixel_ypos[9:4] < 22&& char[char_y][159-char_x] == 1'b1) begin
-        // 			pixel_data<= BLACK; end//ÏÔÊ¾¡°ÇëÑ¡ÔñÄÑ¶È¡± ×Ö·û
+        // 			pixel_data<= BLACK; end//æ˜¾ç¤ºâ€œè¯·é€‰æ‹©éš¾åº¦â€ å­—ç¬¦
                     
         // 		  else if(pixel_xpos[9:4] >=42 && pixel_xpos[9:4] < 43 && pixel_ypos[9:4] >= 40 && pixel_ypos[9:4] < 41) begin
-        // 			pixel_data<= GREEN;end//ÏÔÊ¾¡°ÈİÒ×¡±µÄÂÌ·½¿é
+        // 			pixel_data<= GREEN;end//æ˜¾ç¤ºâ€œå®¹æ˜“â€çš„ç»¿æ–¹å—
                     
         // 		  else if(pixel_xpos[9:4] >=44 && pixel_xpos[9:4] < 45 && pixel_ypos[9:4] >= 40 && pixel_ypos[9:4] < 41)begin
-        // 			pixel_data<= BLUE;end//ÏÔÊ¾¡°ÖĞµÈ¡±µÄ»Æ·½¿é
+        // 			pixel_data<= BLUE;end//æ˜¾ç¤ºâ€œä¸­ç­‰â€çš„é»„æ–¹å—
                     
         // 	   	else if(pixel_xpos[9:4] >=46 && pixel_xpos[9:4] < 47 && pixel_ypos[9:4] >= 40 && pixel_ypos[9:4] < 41)begin
-        // 			pixel_data<= RED;end//ÏÔÊ¾¡°À§ÄÑ¡±µÄºì·½¿é
+        // 			pixel_data<= RED;end//æ˜¾ç¤ºâ€œå›°éš¾â€çš„çº¢æ–¹å—
         // else begin
-        //       pixel_data <= BACKGROUND_COLOR; // ÆäËûÇøÓòÏÔÊ¾±³¾°ÑÕÉ«
+        //       pixel_data <= BACKGROUND_COLOR; // å…¶ä»–åŒºåŸŸæ˜¾ç¤ºèƒŒæ™¯é¢œè‰²
         //   end 
         // end
 
@@ -419,11 +753,11 @@ begin
             if ((pixel_xpos < SIDE_W) || (pixel_xpos >= H_DISP - SIDE_W)
                 || (pixel_ypos < SIDE_W) || (pixel_ypos >= V_DISP - SIDE_W)) 
                 begin
-                    pixel_data <= BLUE; // »æÖÆÆÁÄ»±ß¿òÎªÀ¶É«
+                    pixel_data <= PURPLE; // ç»˜åˆ¶å±å¹•è¾¹æ¡†ä¸ºè“è‰²
                 end 
             else 
                 begin 
-                    found_match = 0; // ÔÚÃ¿´ÎÏñËØÊ±ÖÓµÄ±ßÔµÖØÖÃ±êÖ¾
+                    found_match = 0; // åœ¨æ¯æ¬¡åƒç´ æ—¶é’Ÿçš„è¾¹ç¼˜é‡ç½®æ ‡å¿—
                     for (index_draw =MaxSize-1; index_draw>=0 && !found_match; index_draw = index_draw-1)
                         begin
                             if(index_draw<SnakeSize)
@@ -431,14 +765,14 @@ begin
                                 if (((pixel_xpos >= Snake_Array[index_draw][0]) && (pixel_xpos < Snake_Array[index_draw][0] + BLOCK_W))
                                     && ((pixel_ypos >= Snake_Array[index_draw][1]) && (pixel_ypos < Snake_Array[index_draw][1] + BLOCK_W))) 
                                     begin
-                                        pixel_data <= SNAKE_COLOR; // »æÖÆÉß
-                                        found_match = 1; // ±ê¼ÇÕÒµ½Æ¥Åä£¬·ÀÖ¹½«pixel_dataÉèÖÃÎªWHITE
+                                        pixel_data <= SNAKE_COLOR; // ç»˜åˆ¶è›‡
+                                        found_match = 1; // æ ‡è®°æ‰¾åˆ°åŒ¹é…ï¼Œé˜²æ­¢å°†pixel_dataè®¾ç½®ä¸ºWHITE
                                     end
                                     
-                                    //»æÖÆ±³¾°
+                                    //ç»˜åˆ¶èƒŒæ™¯
                             end
                         end
-                    //»æÖÆÊ³Îï
+                    //ç»˜åˆ¶é£Ÿç‰©
                     if(!found_match)
                     begin
                         if((pixel_xpos>=Food_Array[0])&&(pixel_xpos<Food_Array[0]+FOOD_W)&&(pixel_ypos>=Food_Array[1])&&(pixel_ypos<Food_Array[1]+FOOD_W))
@@ -447,7 +781,7 @@ begin
                             found_match = 1;
                         end
                          else
-                            pixel_data <= BACKGROUND_COLOR; // Èç¹ûÃ»ÓĞÕÒµ½Æ¥Åä£¬Ôò»æÖÆ±³¾°Îª°×É«
+                            pixel_data <= BACKGROUND_COLOR; // å¦‚æœæ²¡æœ‰æ‰¾åˆ°åŒ¹é…ï¼Œåˆ™ç»˜åˆ¶èƒŒæ™¯ä¸ºç™½è‰²
                     end
                 end
 
@@ -458,16 +792,16 @@ begin
                     //                 pixel_data<=FOOD_COLOR;
                     //             end
                     //         else
-                    //             pixel_data <= BACKGROUND_COLOR; // Èç¹ûÃ»ÓĞÕÒµ½Æ¥Åä£¬Ôò»æÖÆ±³¾°Îª°×É«
+                    //             pixel_data <= BACKGROUND_COLOR; // å¦‚æœæ²¡æœ‰æ‰¾åˆ°åŒ¹é…ï¼Œåˆ™ç»˜åˆ¶èƒŒæ™¯ä¸ºç™½è‰²
                     //     end
 
-            //ËÀÍöÌáÊ¾
+            //æ­»äº¡æç¤º
             if(dead==1)
                 begin
-                    if(pixel_ypos-array_gameover_y>=0&&pixel_ypos-array_gameover_y<32&&size_gameover*HanZiSize-pixel_xpos+array_gameover_x-1>=0&&size_gameover*HanZiSize-pixel_xpos+array_gameover_x-1<size_gameover*HanZiSize)
+                    if(pixel_ypos-array_gameover_y>=0&&pixel_ypos-array_gameover_y<32&&array_gameover_size*HanZiSize-pixel_xpos+array_gameover_x-1>=0&&array_gameover_size*HanZiSize-pixel_xpos+array_gameover_x-1<array_gameover_size*HanZiSize)
                     begin
                     
-                    if(array_gameover[pixel_ypos-array_gameover_y][size_gameover*HanZiSize-pixel_xpos+array_gameover_x-1])
+                    if(array_gameover[pixel_ypos-array_gameover_y][array_gameover_size*HanZiSize-pixel_xpos+array_gameover_x-1])
                     begin
                         pixel_data<=CHAR_COLOR;
                     end
@@ -478,7 +812,7 @@ begin
     endcase
 end
 
-//¸ù¾İµ±Ç°É¨ÃèµãµÄºá×İ×ø±êÎªROMµØÖ·¸³Öµ
+//æ ¹æ®å½“å‰æ‰«æç‚¹çš„æ¨ªçºµåæ ‡ä¸ºROMåœ°å€èµ‹å€¼
 
 always @(posedge pixel_clk)
 begin
@@ -486,7 +820,7 @@ begin
 
          rom_addr <= 14'd0;
 
-     //µ±ºá×İ×ø±êÎ»ÓÚÍ¼Æ¬ÏÔÊ¾ÇøÓòÊ±£¬ÀÛ¼ÓROMµØÖ·   
+     //å½“æ¨ªçºµåæ ‡ä½äºå›¾ç‰‡æ˜¾ç¤ºåŒºåŸŸæ—¶ï¼Œç´¯åŠ ROMåœ°å€   
 
      else if((pixel_ypos >= PIC_Y_START) && (pixel_ypos < PIC_Y_START + PIC_HEIGHT)
 
@@ -494,16 +828,15 @@ begin
 
          rom_addr <= rom_addr + 1'b1;
 
-     //µ±ºá×İ×ø±êÎ»ÓÚÍ¼Æ¬ÇøÓò×îºóÒ»¸öÏñËØµãÊ±£¬ROMµØÖ·ÇåÁã   
+     //å½“æ¨ªçºµåæ ‡ä½äºå›¾ç‰‡åŒºåŸŸæœ€åä¸€ä¸ªåƒç´ ç‚¹æ—¶ï¼ŒROMåœ°å€æ¸…é›¶   
 
      else if((pixel_ypos >= PIC_Y_START + PIC_HEIGHT))
 
          rom_addr <= 14'd0;
-
  end
 
 
- //ROM£º´æ´¢Í¼Æ¬
+ //ROMï¼šå­˜å‚¨å›¾ç‰‡
 
  blk_mem_gen u_blk_mem_gen (
 
@@ -523,13 +856,13 @@ begin
 
 always @(posedge pixel_clk or negedge sys_rst_n) 
 begin
-    if(!sys_rst_n)
+    if(!sys_rst_n||key[5]==1)
         begin
             Score<=0;
         end
     else 
         begin
-            Score<=(SnakeSize-3)*speed*5;
+            Score<=(SnakeSize-3)*difficulty*5;
         end
 end    
 endmodule 

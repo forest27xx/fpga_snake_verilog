@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\krona\source\repos\FPGA_SnakeGame-DynamicFood - wsl\prj\hdmi_block_move_top\hdmi_block_move_top.ncd
-OUTFILE=C:\Users\krona\source\repos\FPGA_SnakeGame-DynamicFood - wsl\prj\hdmi_block_move_top\hdmi_block_move_top.bit
+INFILE=C:\Users\krona\Documents\File\Projects\Projects_FPGA\LAST_FPGA_SnakeGame_UI_SRC_REG_Beep\LAST_FPGA_SnakeGame_UI_SRC_REG_Beep\prj\hdmi_block_move_top\hdmi_block_move_top.ncd
+OUTFILE=C:\Users\krona\Documents\File\Projects\Projects_FPGA\LAST_FPGA_SnakeGame_UI_SRC_REG_Beep\LAST_FPGA_SnakeGame_UI_SRC_REG_Beep\prj\hdmi_block_move_top\hdmi_block_move_top.bit
 FAMILY=Spartan6
 PART=xc6slx16-2ftg256
-WORKINGDIR=C:\Users\krona\source\repos\FPGA_SnakeGame-DynamicFood - wsl\prj\hdmi_block_move_top
+WORKINGDIR=C:\Users\krona\Documents\File\Projects\Projects_FPGA\LAST_FPGA_SnakeGame_UI_SRC_REG_Beep\LAST_FPGA_SnakeGame_UI_SRC_REG_Beep\prj\hdmi_block_move_top
 LICENSE=WebPack
 USER_INFO=__0_0_0

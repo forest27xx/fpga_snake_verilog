@@ -79,12 +79,13 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1706088106" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1706088106">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1706088106" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="8182053612557133609" xil_pn:start_ts="1706088106">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1706118252" xil_pn:in_ck="-8996956755238122819" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-8106072551903460769" xil_pn:start_ts="1706118249">
+    <transform xil_pn:end_ts="1706166030" xil_pn:in_ck="-8996956755238122819" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-8106072551903460769" xil_pn:start_ts="1706166029">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/blk_mem_gen.ngc"/>
@@ -110,13 +111,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1706121472" xil_pn:in_ck="6237597724267144449" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-3374174037258351666" xil_pn:start_ts="1706121397">
+    <transform xil_pn:end_ts="1708679761" xil_pn:in_ck="8487139460812724315" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-3374174037258351666" xil_pn:start_ts="1708679354">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="hdmi_block_move_top.lso"/>
@@ -130,28 +129,24 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1706118329" xil_pn:in_ck="7314725079799908259" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-1046720336634857962" xil_pn:start_ts="1706118329">
+    <transform xil_pn:end_ts="1706166035" xil_pn:in_ck="7314725079799908259" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-1046720336634857962" xil_pn:start_ts="1706166035">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1706121478" xil_pn:in_ck="-4648954998874247634" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-8058838019444297440" xil_pn:start_ts="1706121472">
+    <transform xil_pn:end_ts="1708679765" xil_pn:in_ck="-4648954998874247634" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-8058838019444297440" xil_pn:start_ts="1708679761">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="hdmi_block_move_top.bld"/>
       <outfile xil_pn:name="hdmi_block_move_top.ngd"/>
       <outfile xil_pn:name="hdmi_block_move_top_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1706121555" xil_pn:in_ck="-5206423159825734650" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="319651228325049313" xil_pn:start_ts="1706121478">
+    <transform xil_pn:end_ts="1708679850" xil_pn:in_ck="-5206423159825734650" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="319651228325049313" xil_pn:start_ts="1708679765">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="hdmi_block_move_top.pcf"/>
       <outfile xil_pn:name="hdmi_block_move_top_map.map"/>
@@ -163,10 +158,10 @@
       <outfile xil_pn:name="hdmi_block_move_top_summary.xml"/>
       <outfile xil_pn:name="hdmi_block_move_top_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1706121574" xil_pn:in_ck="-4617489915699280353" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-1178055513630676559" xil_pn:start_ts="1706121555">
+    <transform xil_pn:end_ts="1708679867" xil_pn:in_ck="-4617489915699280353" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-1178055513630676559" xil_pn:start_ts="1708679850">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="hdmi_block_move_top.ncd"/>
       <outfile xil_pn:name="hdmi_block_move_top.pad"/>
@@ -178,11 +173,9 @@
       <outfile xil_pn:name="hdmi_block_move_top_pad.txt"/>
       <outfile xil_pn:name="hdmi_block_move_top_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1706121587" xil_pn:in_ck="2551950458553038423" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1706121574">
+    <transform xil_pn:end_ts="1708679876" xil_pn:in_ck="2551950458553038423" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1708679867">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="hdmi_block_move_top.bgn"/>
       <outfile xil_pn:name="hdmi_block_move_top.bit"/>
@@ -192,15 +185,13 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1706121834" xil_pn:in_ck="2551950458553025569" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1706121833">
+    <transform xil_pn:end_ts="1708626077" xil_pn:in_ck="2551950458553025569" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1708626074">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
-    <transform xil_pn:end_ts="1706121574" xil_pn:in_ck="-5206423159825734782" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1706121568">
+    <transform xil_pn:end_ts="1708679867" xil_pn:in_ck="-5206423159825734782" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1708679862">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
       <outfile xil_pn:name="hdmi_block_move_top.twr"/>
       <outfile xil_pn:name="hdmi_block_move_top.twx"/>

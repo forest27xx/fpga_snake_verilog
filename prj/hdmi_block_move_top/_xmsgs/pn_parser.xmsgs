@@ -8,10 +8,49 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/krona/source/repos/FPGA_SnakeGame-DynamicFood - wsl/rtl/debounce.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/decode_rcv.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/krona/source/repos/FPGA_SnakeGame-DynamicFood - wsl/rtl/encode.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/remote_rcv.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/Beeper.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/debounce.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/debounce_1.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/encode.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/hdmi_block_move_top.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/rgbtodvi_top.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/rng_custom_range.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/seg_led.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/serdes_n_to_1.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/state.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/timer.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/video_display.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;F:/Library_learning/FPGA/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/LAST_FPGA_SnakeGame_UI_SRC_REG_Beep/rtl/video_driver.v&quot; into library work</arg>
 </msg>
 
 </messages>

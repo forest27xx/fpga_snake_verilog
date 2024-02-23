@@ -13,7 +13,11 @@ module  hdmi_block_move_top(
     input       speed_change,
     input       [5:0]key_in,//控制上下左右
     input        remote_in,    //红外接收信号
-
+    input					tone_en,	//开关
+    input					chose_up,	//上一首
+    input					chose_down,	//下一首
+    input					start_stop, //暂停和开始
+    output	 	 piano_out,	//蜂鸣器控制输出
     output       tmds_clk_p,    // TMDS 时钟通道
     output       tmds_clk_n,
     output [2:0] tmds_data_p,   // TMDS 数据通道
@@ -40,13 +44,54 @@ wire [5:0]Score;
 wire CLK_OUT1;
 wire CLK_OUT2;
 wire CLK_OUT3;
-
+//蜂鸣器音乐
+wire up,down;
+wire[2:0] flag;
+wire ss;
+wire [127:0] time_1;
+wire [127:0] time_2;
 //红外线遥控
 wire [7:0]rcv_data;
+//难度调整
+wire [1:0]difficulty;
+wire [1:0]diff;
 //*****************************************************
 //**                    main code
 //*****************************************************
-
+debounce_1 U1 (.clk(music_clk),
+		.rst(sys_rst_n),
+		.key(chose_up),
+		.key_pulse(up));
+		 
+debounce_1 U2(.clk(music_clk),
+		.rst(sys_rst_n),
+		.key(start_stop),
+		.key_pulse(ss));
+		
+debounce_1 U3(.clk(music_clk),
+		.rst(sys_rst_n),
+		.key(chose_down),
+		.key_pulse(down));
+		
+timer u_timer(
+		 .clk(music_clk),
+		 .flag(flag),
+		 .rst(sys_rst_n),
+		 .tone_en(tone_en),
+		 .start_stop(ss),
+		 .out_1(time_1),
+		 .out_2(time_2));
+//实例化蜂鸣器
+Beeper u_Beeper(.clk_in(music_clk),		  
+		  .rst_n_in(sys_rst_n),
+		  .tone_en(tone_en),
+		  .chose_up(up),
+		  .chose_down(down),
+		  .start_stop(ss),
+		  .flag(flag),
+		  .piano_out(piano_out)
+		  );
+      
 //例化视频显示驱动模块
 video_driver u_video_driver(
     .pixel_clk      (tx_pclk),
@@ -69,6 +114,7 @@ video_display  u_video_display(
     .speed_change   (speed_use|{5'b00000,key2[6]}),//对加速键进行或操作
     .key            ({key2[5:0]}|key),//测试红外key2
     .state_1        (state_1),
+    .difficulty     (diff),
     .pixel_xpos     (pixel_xpos_w),
     .pixel_ypos     (pixel_ypos_w),
     .pixel_data     (pixel_data_w),
@@ -81,7 +127,8 @@ state u_state(
    .sys_rst_n      (sys_rst_n), 
    .key            ({key2[5:0]}|key),//或语句,测试红外Key2，没问题
    .state_1        (state_1),
-   .state_2        (state_2)
+   .state_2        (state_2),
+   .difficulty      (difficulty)
    );	  
 
 debounce u_debounce(
@@ -104,8 +151,9 @@ rgbtodvi_top u_rgbtodvi_top (
   .red_din     (video_rgb[23:16]),
   .hsync       (video_hs),
   .vsync       (video_vs),
-  .de          (video_de),	 
+  .de          (video_de),
 
+  .music_clk   (music_clk),
   .pclk        (tx_pclk),  
   .TMDS_CLK    (tmds_clk_p),          // TMDS 时钟通道
   .TMDS_CLKB   (tmds_clk_n),	  
@@ -117,7 +165,7 @@ seg_led u_seg_led(
     .clk           (tx_pclk),       // 时钟信号
     .rst_n         (sys_rst_n),       // 复位信号
     //.data       (rcv_data),//测试红外输入，没问题
-    .data          (Score),       // 显示的数值
+    .data          (Score),       // 显示的数值//测试difficulty
     .point         (6'b000000),       // 小数点具体显示的位置,高电平有效
     .en            (1),       // 数码管使能信号
     .sign          (0),       // 符号位，高电平显示负号(-)
@@ -139,7 +187,8 @@ decode_rcv u_decode_rcv(
     .sys_clk        (tx_pclk),
     .sys_rst_n      (sys_rst_n),
     .data           (rcv_data),
-    .key2           (key2)      
+    .key2           (key2),
+    .diff           (diff)      
 );
 
 // pll2 u_pll2(
