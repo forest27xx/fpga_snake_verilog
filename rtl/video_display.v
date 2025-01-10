@@ -45,7 +45,8 @@ localparam INI_Y =11'd320 ;
 localparam StandardF =20'd742500;
 localparam HanZiSize =32 ;
 
-
+localparam T_INI_X=11'd40;
+localparam T_INI_Y=11'd40;
 
 
 //定义食物
@@ -69,7 +70,7 @@ reg [10:0] block_y = INI_Y ;                             //方块左上角纵坐
 
 //定义蛇
 reg [3:0] SnakeSize=3;//定义蛇长度
-localparam MaxSize =10 ;//16
+localparam MaxSize =16 ;//16
 reg [10:0] Snake_Array[MaxSize-1:0][1:0]; // 定义蛇的每节的坐标数组
 reg [1:0]speed=1;
 
@@ -107,6 +108,35 @@ always @(posedge pixel_clk) begin
 end
 // 使用随机种子生成食物位置
 
+localparam L_Wall_X =15 ;
+localparam L_Wall_Y =12 ;
+localparam R_Wall_X =48 ;
+localparam R_Wall_Y =12 ;
+
+localparam Wall_Size_1=11;
+localparam Wall_Size_2=11;
+
+
+reg [2:0] station=0;
+//城墙逻辑
+integer w1;
+integer w2;
+reg [10:0] Wall_Array_1[Wall_Size_1-1:0][1:0]; // 定义蛇的每节的坐标数组
+reg [10:0] Wall_Array_2[Wall_Size_2-1:0][1:0]; // 定义蛇的每节的坐标数组
+
+always @(posedge pixel_clk) begin
+  for(w1=0;w1<=Wall_Size_1-1;w1=w1+1)begin
+    Wall_Array_1[w1][0]=T_INI_X+L_Wall_X*BLOCK_W;
+    Wall_Array_1[w1][1]=T_INI_Y+BLOCK_W*(w1+1+L_Wall_Y);
+  end
+end
+
+always @(posedge pixel_clk) begin
+  for(w2=0;w2<=Wall_Size_1-1;w2=w2+1)begin
+    Wall_Array_2[w2][0]=T_INI_X+R_Wall_X*BLOCK_W;
+    Wall_Array_2[w2][1]=T_INI_Y+BLOCK_W*(w2+1+R_Wall_Y);
+  end
+end
 
 
 //按键切换
@@ -314,7 +344,24 @@ always @(posedge pixel_clk ) begin
                             dead=1;
                         // GAME_EN=0;
                         end
-                    //吃到食物,食物更新逻辑        
+
+                    //撞到城墙
+                    if((station>=1)&&(Snake_Array[0][0]>=Wall_Array_1[0][0]) && (Snake_Array[0][0] <= Wall_Array_1[0][0])&& (Snake_Array[0][1]>=Wall_Array_1[0][1])&& (Snake_Array[0][1]<=Wall_Array_1[Wall_Size_1-1][1])&&dead==0)
+                        begin
+                            dead=1;
+                        // GAME_EN=0;
+                        end  
+                    //撞到城墙_2
+                  
+                    if((station>=2)&&(Snake_Array[0][0]>=Wall_Array_2[0][0]) && (Snake_Array[0][0] <= Wall_Array_2[0][0])&& (Snake_Array[0][1]>=Wall_Array_2[0][1])&& (Snake_Array[0][1]<=Wall_Array_2[Wall_Size_1-1][1])&&dead==0)
+                        begin
+                            dead=1;
+                        // GAME_EN=0;
+                        end 
+
+
+                    if(Snake_Array[0][0])    
+                    //吃到食物,食物更新逻辑
                     if((Snake_Array[0][0]>=Food_Array[0])&&(Snake_Array[0][0]<Food_Array[0]+FOOD_W)&&(Snake_Array[0][1]>=Food_Array[1])&&(Snake_Array[0][1]<Food_Array[1]+FOOD_W))
                         begin
                             if(SnakeSize<MaxSize)
@@ -622,7 +669,12 @@ always@(posedge pixel_clk)
         array_select[31] <= 32'h00000000;
     end
 integer index_draw;
+
+integer draw_wall;
+integer draw_wall_2;
+
 reg found_match = 0; // 添加一个标志来指示是否找到匹配
+
 
 // 给不同的区域绘制不同的颜色
 always @(posedge pixel_clk) 
@@ -753,8 +805,9 @@ begin
             if ((pixel_xpos < SIDE_W) || (pixel_xpos >= H_DISP - SIDE_W)
                 || (pixel_ypos < SIDE_W) || (pixel_ypos >= V_DISP - SIDE_W)) 
                 begin
-                    pixel_data <= PURPLE; // 绘制屏幕边框为蓝色
-                end 
+                    pixel_data <= PURPLE; // 绘制屏幕边框为紫色
+                end
+            
             else 
                 begin 
                     found_match = 0; // 在每次像素时钟的边缘重置标志
@@ -772,6 +825,11 @@ begin
                                     //绘制背景
                             end
                         end
+
+                    // 绘制城墙
+
+
+
                     //绘制食物
                     if(!found_match)
                     begin
@@ -782,6 +840,23 @@ begin
                         end
                          else
                             pixel_data <= BACKGROUND_COLOR; // 如果没有找到匹配，则绘制背景为白色
+                    end
+
+                    for (draw_wall=Wall_Size_1-1;draw_wall>=0;draw_wall=draw_wall-1)begin
+                       if (((station>=1)&&(pixel_xpos >= Wall_Array_1[draw_wall][0]) && (pixel_xpos < Wall_Array_1[draw_wall][0] + BLOCK_W))
+                                    && ((pixel_ypos >= Wall_Array_1[draw_wall][1]) && (pixel_ypos < Wall_Array_1[draw_wall][1] + BLOCK_W))) 
+                                    begin
+                                        pixel_data <= BLACK; // 绘制城墙
+                                    end
+                                    
+                    end
+                    for (draw_wall_2=Wall_Size_1-1;draw_wall_2>=0;draw_wall_2=draw_wall_2-1)begin
+                       if (((station>=2)&&(pixel_xpos >= Wall_Array_2[draw_wall_2][0]) && (pixel_xpos < Wall_Array_2[draw_wall_2][0] + BLOCK_W))
+                                    && ((pixel_ypos >= Wall_Array_2[draw_wall_2][1]) && (pixel_ypos < Wall_Array_2[draw_wall_2][1] + BLOCK_W))) 
+                                    begin
+                                        pixel_data <= BLACK; // 绘制城墙
+                                    end
+                                    
                     end
                 end
 
@@ -859,10 +934,17 @@ begin
     if(!sys_rst_n||key[5]==1)
         begin
             Score<=0;
+            station<=0;
         end
     else 
         begin
             Score<=(SnakeSize-3)*difficulty*5;
+            if(Score>=20 && Score<=40)begin
+              station<=1;
+            end
+            if(Score>40)begin
+              station<=2;
+            end
         end
 end    
 endmodule 
