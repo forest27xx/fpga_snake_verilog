@@ -128,7 +128,7 @@ state u_state(
    .key            ({key2[5:0]}|key),//或语句,测试红外Key2，没问题
    .state_1        (state_1),
    .state_2        (state_2),
-   .difficulty      (difficulty)
+   .difficulty      (diff)
    );	  
 
 debounce u_debounce(
@@ -188,7 +188,7 @@ decode_rcv u_decode_rcv(
     .sys_rst_n      (sys_rst_n),
     .data           (rcv_data),
     .key2           (key2),
-    .diff           (diff)      
+    .diff           (difficulty)      
 );
 
 // pll2 u_pll2(
